@@ -8,6 +8,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'flazz/vim-colorschemes'
+Plug 'lervag/vimtex'
 call plug#end()
 
 set encoding=utf-8
