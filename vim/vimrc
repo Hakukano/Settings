@@ -9,6 +9,7 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'flazz/vim-colorschemes'
 Plug 'lervag/vimtex'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 set encoding=utf-8
