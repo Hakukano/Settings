@@ -1,0 +1,66 @@
+set nocompatible
+syntax on
+filetype plugin indent on
+set background=dark
+
+call plug#begin()
+Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-surround'
+Plug 'mbbill/undotree'
+Plug 'flazz/vim-colorschemes'
+call plug#end()
+
+set encoding=utf-8
+" set langmenu=en_US
+let $LANG = 'en_US'
+set guioptions-=m
+set guioptions-=L
+set guioptions-=r
+set guioptions-=T
+
+colorscheme Monokai
+set guifont=Lucida_Console:h12:cANSI:qDRAFT
+
+set backspace=indent,eol,start
+set autoindent
+set smartindent
+set hlsearch
+set incsearch
+set gdefault
+set number
+set relativenumber
+set wildmenu
+
+set expandtab
+set shiftwidth=0
+set smarttab
+set tabstop=4
+
+nnoremap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> Q :q<CR>
+nnoremap <silent> <CR> :update<CR>
+nnoremap <silent> H :bprevious<CR>
+nnoremap <silent> L :bnext<CR>
+nnoremap <silent> - :bdelete<CR>
+nnoremap <silent> _ :bdelete!<CR>
+
+nnoremap <C-C> <C-W><C-C>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+
+let g:ycm_global_ycm_extra_conf = 'C:/Users/baoji/vimfiles/ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_min_num_of_chars_for_completion          = 1
+let g:ycm_seed_identifiers_with_syntax             = 1
+
