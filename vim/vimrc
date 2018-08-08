@@ -45,6 +45,7 @@ nnoremap <silent> H :bprevious<CR>
 nnoremap <silent> L :bnext<CR>
 nnoremap <silent> - :bdelete<CR>
 nnoremap <silent> _ :bdelete!<CR>
+nnoremap <silent> U :UndoTreeToggle
 
 nnoremap <C-C> <C-W><C-C>
 nnoremap <C-H> <C-W><C-H>
