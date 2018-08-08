@@ -45,7 +45,7 @@ nnoremap <silent> H :bprevious<CR>
 nnoremap <silent> L :bnext<CR>
 nnoremap <silent> - :bdelete<CR>
 nnoremap <silent> _ :bdelete!<CR>
-nnoremap <silent> U :UndoTreeToggle<CR>
+nnoremap <silent> U :UndotreeToggle<CR>
 
 nnoremap <C-C> <C-W><C-C>
 nnoremap <C-H> <C-W><C-H>
@@ -71,3 +71,12 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_min_num_of_chars_for_completion          = 1
 let g:ycm_seed_identifiers_with_syntax             = 1
 
+augroup vimrc
+    autocmd!
+
+    autocmd BufReadPost *
+                \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
+
+augroup END
