@@ -10,6 +10,10 @@ Plug 'mbbill/undotree'
 Plug 'flazz/vim-colorschemes'
 Plug 'lervag/vimtex'
 Plug 'jiangmiao/auto-pairs'
+if has('win32')
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-shell'
+endif
 call plug#end()
 
 set encoding=utf-8
@@ -22,6 +26,8 @@ set guioptions-=T
 
 colorscheme Monokai
 set guifont=Lucida_Console:h12:cANSI:qDRAFT
+set lines=50
+set columns=140
 
 set backspace=indent,eol,start
 set autoindent
