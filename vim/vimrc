@@ -6,6 +6,7 @@ set background=dark
 call plug#begin()
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'flazz/vim-colorschemes'
 Plug 'lervag/vimtex'
