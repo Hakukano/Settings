@@ -18,7 +18,6 @@ endif
 call plug#end()
 
 set encoding=utf-8
-" set langmenu=en_US
 let $LANG = 'en_US'
 set guioptions-=m
 set guioptions-=L
@@ -29,8 +28,8 @@ colorscheme Monokai
 set guifont=Lucida_Console:h12:cANSI:qDRAFT
 
 if has('win32')
-set lines=50
-set columns=140
+    set lines=50
+    set columns=140
 endif
 
 set backspace=indent,eol,start
