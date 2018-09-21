@@ -1,4 +1,0 @@
-[[ $- != *i* ]] && return
-
-# Alias
-alias home="cd ~/Desktop/Hakukano/"

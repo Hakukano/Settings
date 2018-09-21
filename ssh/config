@@ -1,0 +1,15 @@
+Host uwStudent
+    HostName linux.student.cs.uwaterloo.ca
+    User j25bao
+
+Host uwDatasci
+    HostName datasci.cs.uwaterloo.ca
+    User j25bao
+
+Host japanUser
+    HostName 45.32.45.0
+    User hakukano
+    
+Host japanRoot
+    HostName 45.32.45.0
+    User root
