@@ -4,13 +4,14 @@ filetype plugin indent on
 set background=dark
 
 call plug#begin()
-Plug 'Valloric/YouCompleteMe'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'mbbill/undotree'
+Plug 'derekwyatt/vim-scala'
 Plug 'flazz/vim-colorschemes'
-Plug 'lervag/vimtex'
 Plug 'jiangmiao/auto-pairs'
+Plug 'lervag/vimtex'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
 if has('win32')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-shell'
