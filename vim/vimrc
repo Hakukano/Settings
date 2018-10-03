@@ -50,7 +50,7 @@ set tabstop=4
 
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap <silent> Q :q<CR>
-nnoremap <silent> <CR> :update<CR>
+nnoremap <silent> <CR> :w<CR>
 nnoremap <silent> H :bprevious<CR>
 nnoremap <silent> L :bnext<CR>
 nnoremap <silent> - :bdelete<CR>
