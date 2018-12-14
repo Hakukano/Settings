@@ -13,9 +13,11 @@ Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 if has('win32')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-shell'
@@ -87,6 +89,8 @@ let g:ycm_seed_identifiers_with_syntax             = 1
 
 augroup vimrc
     autocmd!
+
+    autocmd VimEnter * NERDTree
 
     autocmd BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
