@@ -8,6 +8,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User alias
+alias sudo="sudo "
+
 alias ls="ls --color=auto -h"
 alias la="ls -a"
 alias lal="ls -al"

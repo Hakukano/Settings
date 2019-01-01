@@ -1,0 +1,18 @@
+#!/bin/bash
+
+declare -A LINKS=(
+    [".bash_profile"]="bash/bash_profile"
+    [".bashrc"]="bash/bashrc"
+    [".config/git"]="git"
+    [".npmrc"]="npm/npmrc"
+    [".ssh/config"]="ssh/config"
+    [".tmux.conf"]="tmux/tmux.conf"
+    [".vim"]="vim"
+)
+
+for src in ${!LINKS[@]}; do
+    dest=${LINKS[$src]}
+    mkdir -p $(dirname $HOME/$src)
+    [[ ! -e $HOME/$src ]] &&
+        ln -fvs $PWD/$dest $HOME/$src
+done
