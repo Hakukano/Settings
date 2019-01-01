@@ -13,11 +13,9 @@ Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'mbbill/undotree'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 if has('win32')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-shell'
@@ -79,7 +77,7 @@ inoremap <Up> <nop>
 inoremap <Down> <nop>
 
 if has('win32')
-    let g:ycm_global_ycm_extra_conf = 'C:/Users/baoji/vimfiles/ycm_extra_conf.py'
+    let g:ycm_global_ycm_extra_conf = '~/vimfiles/ycm_extra_conf.py'
 else
     let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 endif
@@ -89,8 +87,6 @@ let g:ycm_seed_identifiers_with_syntax             = 1
 
 augroup vimrc
     autocmd!
-
-    autocmd VimEnter * NERDTree
 
     autocmd BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
