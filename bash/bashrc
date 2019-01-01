@@ -52,6 +52,20 @@ mkcd() {
         cd -- "$1"
 }
 
+upload() {
+    [[ $# -ne 2 ]] &&
+        echo "Usage: upload [file/directory] [vps]" &&
+        return 1
+
+    [[ ! -e $1 ]] &&
+        echo "File/Directory doesn't exist" &&
+        return 2
+
+    [[ ${2,,} = "japan" ]] &&
+        scp -r $1 japanUser:Http/ &&
+        return 0
+}
+
 function_path=~/.settings/function
 if [[ -f $function_path ]]; then
     source $function_path
