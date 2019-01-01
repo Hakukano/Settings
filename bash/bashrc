@@ -54,5 +54,5 @@ mkcd() {
 
 function_path=~/.settings/function
 if [[ -f $function_path ]]; then
-    source $alias_path
+    source $function_path
 fi
