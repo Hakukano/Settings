@@ -1,0 +1,22 @@
+# vim: ft=sh
+
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+export PATH="$HOME/.npm/bin:$HOME/.local/bin:$HOME/bin:$PATH"
+
+local_path=~/.settings/path
+if [[ -f $local_path ]]; then
+    source $local_path
+fi
+
+if [[ -n "$SSH_CONNECTION" && -z "$TMUX" ]]; then
+    if tmux attach || tmux new; then
+        exit
+    fi
+fi

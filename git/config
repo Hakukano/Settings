@@ -1,0 +1,18 @@
+# vim: ft=gitconfig
+[user]
+    email = flp.hakukano@gmail.com
+    name = Hakukano
+[format]
+    pretty = oneline
+[status]
+    short = true
+    branch = true
+[diff]
+    tool = vimdiff
+[commit]
+    verbose = true
+[log]
+    abbrevCommit = true
+    decorate = short
+[grep]
+    lineNumber = true
