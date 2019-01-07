@@ -15,7 +15,7 @@ Plug 'lervag/vimtex'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-if has('python')
+if has('python') || has('python2') || has('python3')
     Plug 'Valloric/YouCompleteMe'
 endif
 if has('win32')
