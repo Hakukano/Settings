@@ -10,9 +10,43 @@ declare -A LINKS=(
     [".vim"]="vim"
 )
 
+windows() { [[ -n "$WINDIR" ]]; }
+
+# Cross-platform symlink function. With one parameter, it will check
+# whether the parameter is a symlink. With two parameters, it will create
+# a symlink to a file or directory, with syntax: link $linkname $target
+link() {
+    if [[ -z "$2" ]]; then
+        # Link-checking mode.
+        if windows; then
+            fsutil reparsepoint query "$1" > /dev/null
+        else
+            [[ -h "$1" ]]
+        fi
+    else
+        # Link-creation mode.
+        if windows; then
+            # Windows needs to be told if it's a directory or not. Infer that.
+            # Also: note that we convert `/` to `\`. In this case it's necessary.
+	    linkname=${1/\/c/C:}
+	    linkname=${linkname//\//\\}
+	    target=${2/\/c/C:}
+	    target=${target//\//\\}
+            if [[ -d "$2" ]]; then
+                cmd <<< "mklink /D "${linkname}" "${target} > /dev/null
+            else
+                cmd <<< "mklink "${linkname}" "${target} > /dev/null
+            fi
+        else
+            # You know what? I think ln's parameters are backwards.
+            ln -fvs "$2" "$1"
+        fi
+    fi
+}
+
 for src in ${!LINKS[@]}; do
     dest=${LINKS[$src]}
     mkdir -p $(dirname $HOME/$src)
     [[ ! -e $HOME/$src ]] &&
-        ln -fvs $PWD/$dest $HOME/$src
+        link $HOME/$src $PWD/$dest
 done
