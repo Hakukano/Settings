@@ -50,3 +50,9 @@ for src in ${!LINKS[@]}; do
     [[ ! -e $HOME/$src ]] &&
         link $HOME/$src $PWD/$dest
 done
+
+local_settings=$HOME/.settings
+mkdir -p $local_settings
+touch $local_settings/alias
+touch $local_settings/function
+touch $local_settings/path
