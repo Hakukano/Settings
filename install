@@ -53,6 +53,6 @@ done
 
 local_settings=$HOME/.settings
 mkdir -p $local_settings
-[[ ! -e $local_settings/alias ]] && echo "" > $local_settings/alias
-[[ ! -e $local_settings/function ]] && echo "" > $local_settings/function
-[[ ! -e $local_settings/path ]] && echo "" > $local_settings/path
+[[ ! -e $local_settings/alias ]] && echo "# vim: ft=sh" > $local_settings/alias
+[[ ! -e $local_settings/function ]] && echo "# vim: ft=sh" > $local_settings/function
+[[ ! -e $local_settings/path ]] && echo "# vim: ft=sh" > $local_settings/path
