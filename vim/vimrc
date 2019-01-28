@@ -12,6 +12,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
+Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -24,15 +25,19 @@ if has('win32')
 endif
 call plug#end()
 
+" Settings for plugs
+colorscheme Monokai
+set guifont=Lucida_Console:h12:cANSI:qDRAFT
+let g:user_emmet_mode='a'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 set encoding=utf-8
 let $LANG = 'en_US'
 set guioptions-=m
 set guioptions-=L
 set guioptions-=r
 set guioptions-=T
-
-colorscheme Monokai
-set guifont=Lucida_Console:h12:cANSI:qDRAFT
 
 if has('win32')
     set lines=50
