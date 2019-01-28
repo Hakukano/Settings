@@ -2,10 +2,53 @@ if has('python3')
     silent! python3 1
 endif
 
-set nocompatible
-syntax on
 filetype plugin indent on
+syntax on
+
+let $LANG = 'en_US'
+
+set autoindent
 set background=dark
+set backspace=indent,eol,start
+set encoding=utf-8
+set expandtab
+set gdefault
+set guioptions-=L
+set guioptions-=T
+set guioptions-=m
+set guioptions-=r
+set hlsearch
+set incsearch
+set nocompatible
+set number
+set relativenumber
+set shiftwidth=0
+set smartindent
+set smarttab
+set tabstop=4
+set wildmenu
+
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+inoremap <Up> <nop>
+nnoremap <C-C> <C-W><C-C>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <silent> - :bdelete<CR>
+nnoremap <silent> <BS> :nohlsearch<CR>
+nnoremap <silent> <CR> :w<CR>
+nnoremap <silent> H gT
+nnoremap <silent> L gt
+nnoremap <silent> Q :q<CR>
+nnoremap <silent> U :UndotreeToggle<CR>
+nnoremap <silent> _ :bdelete!<CR>
 
 call plug#begin()
 Plug 'derekwyatt/vim-scala'
@@ -28,60 +71,10 @@ call plug#end()
 " Settings for plugs
 colorscheme Monokai
 set guifont=Lucida_Console:h12:cANSI:qDRAFT
+
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-
-set encoding=utf-8
-let $LANG = 'en_US'
-set guioptions-=m
-set guioptions-=L
-set guioptions-=r
-set guioptions-=T
-
-if has('win32')
-    set lines=50
-    set columns=140
-endif
-
-set backspace=indent,eol,start
-set autoindent
-set smartindent
-set hlsearch
-set incsearch
-set gdefault
-set number
-set relativenumber
-set wildmenu
-
-set expandtab
-set shiftwidth=0
-set smarttab
-set tabstop=4
-
-nnoremap <silent> <BS> :nohlsearch<CR>
-nnoremap <silent> Q :q<CR>
-nnoremap <silent> <CR> :w<CR>
-nnoremap <silent> H gT
-nnoremap <silent> L gt
-nnoremap <silent> - :bdelete<CR>
-nnoremap <silent> _ :bdelete!<CR>
-nnoremap <silent> U :UndotreeToggle<CR>
-
-nnoremap <C-C> <C-W><C-C>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
 
 if has('win32')
     let g:ycm_global_ycm_extra_conf = '~/vimfiles/ycm_extra_conf.py'
@@ -91,6 +84,7 @@ endif
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_min_num_of_chars_for_completion          = 1
 let g:ycm_seed_identifiers_with_syntax             = 1
+" END
 
 augroup vimrc
     autocmd!
@@ -99,5 +93,9 @@ augroup vimrc
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
                 \   exe "normal! g`\"" |
                 \ endif
+
+    if has('win32')
+        autocmd GUIEnter * simalt ~x
+    endif
 
 augroup END
