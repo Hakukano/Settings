@@ -52,6 +52,7 @@ nnoremap <silent> _ :bdelete!<CR>
 
 call plug#begin()
 Plug 'derekwyatt/vim-scala'
+Plug 'digitaltoad/vim-pug'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
