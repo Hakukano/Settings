@@ -60,7 +60,7 @@ upload() {
     subDir=""
     [[ $# -eq 3 ]] && subDir=$3
 
-    [[ ${2,,} = "japan" ]] && scp -r $1 japanUser:Http/${subDir} && return 0
+    [[ ${2,,} = "japan" ]] && scp -r $1 japanUser:${subDir} && return 0
 }
 
 function_path=~/.settings/function
