@@ -6,11 +6,10 @@
   ],
   "plugins": {
       "angular": {},
-      "doc_comment": null,
+      "doc_comment": {
+          "fullDocs": true
+      },
       "es_modules": {},
       "node": {}
-  },
-  "dontLoad": [
-      "node_modules/**"
-  ]
+  }
 }
