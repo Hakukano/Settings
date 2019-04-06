@@ -4,6 +4,7 @@ declare -A LINKS=(
     [".bash_profile"]="bash/bash_profile"
     [".bashrc"]="bash/bashrc"
     [".config/git"]="git"
+    [".config/nvim"]="nvim"
     [".npmrc"]="npm/npmrc"
     [".ssh/config"]="ssh/config"
     [".tern-config"]="tern/tern-config"
