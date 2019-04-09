@@ -67,6 +67,9 @@ if has('win32')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-shell'
 endif
+if has('nvim')
+    Plug 'neovimhaskell/haskell-vim'
+endif
 call plug#end()
 
 " Settings for plugs
@@ -85,6 +88,16 @@ endif
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_min_num_of_chars_for_completion          = 1
 let g:ycm_seed_identifiers_with_syntax             = 1
+
+if has('nvim')
+    let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+    let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+    let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+    let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+    let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+    let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+    let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+endif
 " END
 
 augroup vimrc

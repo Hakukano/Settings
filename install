@@ -7,7 +7,6 @@ declare -A LINKS=(
     [".config/nvim"]="nvim"
     [".npmrc"]="npm/npmrc"
     [".ssh/config"]="ssh/config"
-    [".tern-config"]="tern/tern-config"
     [".tmux.conf"]="tmux/tmux.conf"
     [".vim"]="vim"
 )
