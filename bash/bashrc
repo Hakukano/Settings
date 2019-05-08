@@ -67,3 +67,8 @@ function_path=~/.settings/function
 if [[ -f $function_path ]]; then
     source $function_path
 fi
+
+extendrc_path=~/.settings/extendrc
+if [[ -f $extendrc_path ]]; then
+    source $extendrc_path
+fi
