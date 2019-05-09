@@ -58,6 +58,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 if has('python') || has('python2') || has('python3')
@@ -79,6 +80,8 @@ set guifont=Lucida_Console:h12:cANSI:qDRAFT
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+let NERDTreeShowHidden=1
 
 if has('win32')
     let g:ycm_global_ycm_extra_conf = '~/vimfiles/ycm_extra_conf.py'
@@ -107,6 +110,10 @@ augroup vimrc
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
                 \   exe "normal! g`\"" |
                 \ endif
+
+    autocmd vimenter * NERDTree
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
     if has('win32')
         autocmd GUIEnter * simalt ~x
