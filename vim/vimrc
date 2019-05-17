@@ -33,6 +33,8 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 inoremap <Up> <nop>
 nnoremap <C-C> <C-W><C-C>
+nnoremap <C-F> :YcmCompleter FixIt<CR>
+nnoremap <C-G> :YcmCompleter GoTo<CR>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
