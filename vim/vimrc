@@ -39,6 +39,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-Y>f :YcmCompleter FixIt<CR>
 nnoremap <C-Y>g :YcmCompleter GoTo<CR>
+nnoremap <C-Y>r :YcmRestartServer<CR>
 nnoremap <C-Y>t :YcmCompleter GetType<CR>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
@@ -92,18 +93,19 @@ if has('win32')
 else
     let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
 endif
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_min_num_of_chars_for_completion          = 1
-let g:ycm_seed_identifiers_with_syntax             = 1
+let  g:ycm_autoclose_preview_window_after_insertion  =  1
+let  g:ycm_confirm_extra_conf                        =  1
+let  g:ycm_min_num_of_chars_for_completion           =  1
+let  g:ycm_seed_identifiers_with_syntax              =  1
 
 if has('nvim')
-    let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-    let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-    let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-    let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-    let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-    let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-    let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+    let  g:haskell_enable_quantification    =  1  "  to  enable  highlighting  of  `forall`
+    let  g:haskell_enable_recursivedo       =  1  "  to  enable  highlighting  of  `mdo`      and       `rec`
+    let  g:haskell_enable_arrowsyntax       =  1  "  to  enable  highlighting  of  `proc`
+    let  g:haskell_enable_pattern_synonyms  =  1  "  to  enable  highlighting  of  `pattern`
+    let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
+    let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
+    let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
 endif
 " END
 
