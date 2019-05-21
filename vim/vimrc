@@ -59,6 +59,8 @@ Plug 'derekwyatt/vim-scala'
 Plug 'digitaltoad/vim-pug'
 Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
