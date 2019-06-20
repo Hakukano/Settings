@@ -28,7 +28,7 @@ alias rm="rm -Iv"
 
 alias grep="grep --color=auto"
 
-alias aptall="sudo apt update && sudo apt upgrade -y && sudo apt auto-remove && sudo apt auto-clean"
+alias aptall="sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean"
 
 alias ga="git add"
 alias gb="git branch"
