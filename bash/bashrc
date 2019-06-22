@@ -56,19 +56,16 @@ fi
 
 # Function
 mkcd() {
-    mkdir -p -- "$1" &&
-        cd -- "$1"
+    mkdir -p -- "$1" && cd -- "$1"
 }
 
-upload() {
-    [[ $# -lt 2 ]] && echo "Usage: upload <file/directory> <vps> [directory]" && return 1
-    
-    [[ ! -e $1 ]] && echo "File/Directory doesn't exist" && return 2
-
-    subDir=""
-    [[ $# -eq 3 ]] && subDir=$3
-
-    [[ ${2,,} = "japan" ]] && scp -r $1 japanUser:${subDir} && return 0
+gplall() {
+    for dir in `ls`; do
+        echo "********** Entering ${dir} **********"
+        [[ -d ${dir} ]] && cd ${dir} && git pull && cd ..
+        echo "********** Leaving ${dir} **********"
+        echo " "
+    done
 }
 
 function_path=~/.settings/function
