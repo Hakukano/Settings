@@ -68,6 +68,15 @@ gplall() {
     done
 }
 
+gsall() {
+    for dir in `ls`; do
+        echo "********** Entering ${dir} **********"
+        [[ -d ${dir} ]] && cd ${dir} && git status && cd ..
+        echo "********** Leaving ${dir} **********"
+        echo " "
+    done
+}
+
 function_path=~/.settings/function
 if [[ -f $function_path ]]; then
     source $function_path
