@@ -33,7 +33,6 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 inoremap <Up> <nop>
 nnoremap <C-C> <C-W><C-C>
-nnoremap <C-F> :ClangFormat<CR>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -54,7 +53,6 @@ nnoremap <silent> L gt
 nnoremap <silent> Q :q<CR>
 nnoremap <silent> U :UndotreeToggle<CR>
 nnoremap <silent> _ :bdelete!<CR>
-xnoremap <C-F> :ClangFormat<CR>
 
 call plug#begin()
 Plug 'derekwyatt/vim-scala'
@@ -167,6 +165,8 @@ augroup vimrc
                 \ endif
 
     autocmd FileType cpp setlocal tabstop=2
+    autocmd FileType cpp nnoremap <C-F> :ClangFormat<CR>
+    autocmd FileType cpp xnoremap <C-F> :ClangFormat<CR>
 
     autocmd vimenter * NERDTree
     autocmd StdinReadPre * let s:std_in=1
