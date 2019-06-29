@@ -55,6 +55,7 @@ nnoremap <silent> U :UndotreeToggle<CR>
 nnoremap <silent> _ :bdelete!<CR>
 
 call plug#begin()
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'derekwyatt/vim-scala'
 Plug 'digitaltoad/vim-pug'
 Plug 'flazz/vim-colorschemes'
@@ -83,6 +84,19 @@ endif
 call plug#end()
 
 " Settings for plugs
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"}
+let g:NERDTreeShowIgnoredStatus = 1
+
 colorscheme Monokai
 set guifont=Lucida_Console:h12:cANSI:qDRAFT
 
