@@ -6,6 +6,7 @@ filetype plugin indent on
 syntax on
 
 let $LANG = 'en_US'
+let mapleader = ','
 
 set autoindent
 set background=dark
@@ -37,10 +38,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-Y>f :YcmCompleter FixIt<CR>
-nnoremap <C-Y>g :YcmCompleter GoTo<CR>
-nnoremap <C-Y>r :YcmRestartServer<CR>
-nnoremap <C-Y>t :YcmCompleter GetType<CR>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
@@ -51,7 +48,6 @@ nnoremap <silent> <CR> :w<CR>
 nnoremap <silent> H gT
 nnoremap <silent> L gt
 nnoremap <silent> Q :q<CR>
-nnoremap <silent> U :UndotreeToggle<CR>
 nnoremap <silent> _ :bdelete!<CR>
 
 call plug#begin()
@@ -70,16 +66,16 @@ Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+if has('nvim')
+    Plug 'neovimhaskell/haskell-vim'
+    Plug 'alx741/vim-hindent'
+endif
 if has('python') || has('python2') || has('python3')
     Plug 'Valloric/YouCompleteMe'
 endif
 if has('win32')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-shell'
-endif
-if has('nvim')
-    Plug 'neovimhaskell/haskell-vim'
-    Plug 'alx741/vim-hindent'
 endif
 call plug#end()
 
@@ -141,10 +137,29 @@ let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
+nnoremap <Leader>utt :UndotreeToggle<CR>
+
 let g:clang_format#style_options = {
             \ "ColumnLimit" : 0}
 
 let NERDTreeShowHidden=1
+
+if has('nvim')
+    let  g:haskell_enable_quantification    =  1  "  to  enable  highlighting  of  `forall`
+    let  g:haskell_enable_recursivedo       =  1  "  to  enable  highlighting  of  `mdo`      and       `rec`
+    let  g:haskell_enable_arrowsyntax       =  1  "  to  enable  highlighting  of  `proc`
+    let  g:haskell_enable_pattern_synonyms  =  1  "  to  enable  highlighting  of  `pattern`
+    let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
+    let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
+    let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
+endif
+
+if has('python') || has('python2') || has('python3')
+    nnoremap <Leader>ycf :YcmCompleter FixIt<CR>
+    nnoremap <Leader>ycg :YcmCompleter GoTo<CR>
+    nnoremap <Leader>ycr :YcmRestartServer<CR>
+    nnoremap <Leader>yct :YcmCompleter GetType<CR>
+endif
 
 if has('win32')
     let g:ycm_global_ycm_extra_conf = '~/vimfiles/ycm_extra_conf.py'
@@ -156,16 +171,6 @@ let  g:ycm_confirm_extra_conf                        =  0
 let  g:ycm_max_diagnostics_to_display                =  0
 let  g:ycm_min_num_of_chars_for_completion           =  1
 let  g:ycm_seed_identifiers_with_syntax              =  1
-
-if has('nvim')
-    let  g:haskell_enable_quantification    =  1  "  to  enable  highlighting  of  `forall`
-    let  g:haskell_enable_recursivedo       =  1  "  to  enable  highlighting  of  `mdo`      and       `rec`
-    let  g:haskell_enable_arrowsyntax       =  1  "  to  enable  highlighting  of  `proc`
-    let  g:haskell_enable_pattern_synonyms  =  1  "  to  enable  highlighting  of  `pattern`
-    let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
-    let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
-    let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
-endif
 " END
 
 augroup vimrc
@@ -179,8 +184,8 @@ augroup vimrc
                 \ endif
 
     autocmd FileType cpp setlocal tabstop=2
-    autocmd FileType cpp nnoremap <C-F> :ClangFormat<CR>
-    autocmd FileType cpp xnoremap <C-F> :ClangFormat<CR>
+    autocmd FileType cpp nnoremap <Leader>cf :ClangFormat<CR>
+    autocmd FileType cpp xnoremap <Leader>cf :ClangFormat<CR>
 
     autocmd vimenter * NERDTree
     autocmd StdinReadPre * let s:std_in=1
