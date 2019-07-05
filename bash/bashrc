@@ -14,40 +14,40 @@ fi
 PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\]'
 
 # User alias
-alias sudo="sudo "
+alias sudo='sudo '
 
-alias ls="ls --color=auto -h"
-alias la="ls -a"
-alias lal="ls -al"
-alias ll="ls -l"
+alias ls='ls --color=auto -h'
+alias la='ls -a'
+alias lal='ls -al'
+alias ll='ls -l'
 
-alias -- +x="chmod +x"
-alias -- -x="chmod -x"
-alias mkdir="mkdir -pv"
-alias rm="rm -Iv"
+alias -- +x='chmod +x'
+alias -- -x='chmod -x'
+alias mkdir='mkdir -pv'
+alias rm='rm -Iv'
 
-alias grep="grep --color=auto"
+alias grep='grep --color=auto'
 
-alias aptall="sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean"
+alias aptall='sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean'
 
-alias ga="git add"
-alias gb="git branch"
-alias gc="git commit"
-alias gcb="git checkout -b"
-alias gce="git commit --allow-empty-message -m ''"
-alias gch="git checkout"
-alias gd="git diff"
-alias gdc="git diff --cached"
-alias gf="git fetch"
-alias gl="git log"
-alias gm="git merge --no-edit"
-alias gpl="git pull"
-alias gps="git push"
-alias gr="git reset"
-alias gs="git status"
-alias gsd="git stash drop"
-alias gsp="git stash pop"
-alias gss="git stash save"
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit'
+alias gcb='git checkout -b'
+alias gce='git commit --allow-empty-message -m ""'
+alias gch='git checkout'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gf='git fetch'
+alias gl='git log'
+alias gm='git merge --no-edit'
+alias gpl='git pull'
+alias gps='git push'
+alias gr='git reset'
+alias gs='git status'
+alias gsd='git stash drop'
+alias gsp='git stash pop'
+alias gss='git stash save'
 
 alias_path=~/.settings/alias
 if [[ -f $alias_path ]]; then

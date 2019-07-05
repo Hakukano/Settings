@@ -62,17 +62,19 @@ let g:clang_format#style_options = {
 
 let NERDTreeShowHidden=1
 
-if has('cscope')
-    set cscopetag cscopeverbose
-    cnoreabbrev csa cs add
-    cnoreabbrev csf cs find
-    cnoreabbrev csh cs help
-    cnoreabbrev csk cs kill
-    cnoreabbrev csr cs reset
-    cnoreabbrev css cs show
-endif
-
 if has('nvim')
+    " Path to store the cscope files (cscope.files and cscope.out)
+    " Defaults to '~/.cscope'
+    let g:cscope_dir = '~/.nvim-cscope'
+    " Map the default keys on startup
+    " These keys are prefixed by CTRL+\ <cscope param>
+    " A.e.: CTRL+\ d for goto definition of word under cursor
+    " Defaults to off
+    let g:cscope_map_keys = 1
+    " Update the cscope files on startup of cscope.
+    " Defaults to off
+    let g:cscope_update_on_start = 1
+
     let  g:haskell_enable_quantification    =  1  "  to  enable  highlighting  of  `forall`
     let  g:haskell_enable_recursivedo       =  1  "  to  enable  highlighting  of  `mdo`      and       `rec`
     let  g:haskell_enable_arrowsyntax       =  1  "  to  enable  highlighting  of  `proc`
@@ -80,6 +82,18 @@ if has('nvim')
     let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
     let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
     let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
+endif
+
+if !has('nvim')
+    if has('cscope')
+        set cscopetag cscopeverbose
+        cnoreabbrev csa cs add
+        cnoreabbrev csf cs find
+        cnoreabbrev csh cs help
+        cnoreabbrev csk cs kill
+        cnoreabbrev csr cs reset
+        cnoreabbrev css cs show
+    endif
 endif
 
 if has('python') || has('python2') || has('python3')

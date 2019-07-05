@@ -67,10 +67,13 @@ Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/cscope.vim'
 if has('nvim')
-    Plug 'neovimhaskell/haskell-vim'
     Plug 'alx741/vim-hindent'
+    Plug 'mfulz/cscope.nvim'
+    Plug 'neovimhaskell/haskell-vim'
+endif
+if !has('nvim')
+    Plug 'vim-scripts/cscope.vim'
 endif
 if has('python') || has('python2') || has('python3')
     Plug 'Valloric/YouCompleteMe'
