@@ -1,33 +1,26 @@
 #!/bin/bash
 
-declare -A LINKS=(
-    [".bash_profile"]="bash/bash_profile"
-    [".bashrc"]="bash/bashrc"
-    [".config/git"]="git"
-    [".config/nvim"]="nvim"
-    [".npmrc"]="npm/npmrc"
-    [".scripts"]="bash/scripts"
-    [".ssh/config"]="ssh/config"
-    [".tmux.conf"]="tmux/tmux.conf"
-    [".vim"]="vim"
-)
-
-windows_local() { [[ -n "$WINDIR" ]]; }
-
 # Cross-platform symlink function. With one parameter, it will check
 # whether the parameter is a symlink. With two parameters, it will create
 # a symlink to a file or directory, with syntax: link $linkname $target
-slink_local() {
+
+usage() {
+    echo "Usage: slink <link_path> <target_path>"
+}
+
+windows() { [[ -n "$WINDIR" ]]; }
+
+slink() {
     if [[ -z "$2" ]]; then
         # Link-checking mode.
-        if windows_local; then
+        if windows; then
             fsutil reparsepoint query "$1" > /dev/null
         else
             [[ -h "$1" ]]
         fi
     else
         # Link-creation mode.
-        if windows_local; then
+        if windows; then
             # Windows needs to be told if it's a directory or not. Infer that.
             # Also: note that we convert `/` to `\`. In this case it's necessary.
             linkname=${1/\/c/C:}
@@ -46,16 +39,5 @@ slink_local() {
     fi
 }
 
-for src in ${!LINKS[@]}; do
-    dest=${LINKS[$src]}
-    mkdir -p $(dirname $HOME/$src)
-    rm -f $HOME/$src
-    slink_local $HOME/$src $PWD/$dest
-done
-
-local_settings=$HOME/.settings
-mkdir -p $local_settings
-[[ ! -e $local_settings/alias ]] && echo "# Local Aliases" > $local_settings/alias
-[[ ! -e $local_settings/extendrc ]] && echo "# Local Bashrc" > $local_settings/extendrc
-[[ ! -e $local_settings/function ]] && echo "# Local Functions" > $local_settings/function
-[[ ! -e $local_settings/path ]] && echo "# Local Paths" > $local_settings/path
+[[ ${#} -ne 2 ]] && usage && exit 1
+slink ${1} ${2}

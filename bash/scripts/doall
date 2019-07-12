@@ -1,0 +1,28 @@
+#!/bin/bash
+
+usage() {
+    echo "doall {apt|gpl|gs}"
+}
+
+doall() {
+    if [[ ${1} == "apt" ]]; then
+        sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean
+    elif [[ ${1} == "gpl" ]]; then
+        for dir in `ls`; do
+            echo "********** Entering ${dir} **********"
+            [[ -d ${dir} ]] && cd ${dir} && git pull && cd ..
+            echo "********** Leaving ${dir} **********"
+            echo " "
+        done
+    elif [[ ${1} == "gs" ]]; then
+        for dir in `ls`; do
+            echo "********** Entering ${dir} **********"
+            [[ -d ${dir} ]] && cd ${dir} && git status && cd ..
+            echo "********** Leaving ${dir} **********"
+            echo " "
+        done
+    fi
+}
+
+[[ ${#} -ne 1 ]] && usage && exit 1
+doall ${1}
