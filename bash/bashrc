@@ -77,6 +77,29 @@ gsall() {
     done
 }
 
+find_cpp_includes() {
+    declare -A includes
+    pwdir=`pwd`
+
+    for file in `find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp'`; do
+        while IFS= read -r line; do
+            if [[ ${line} =~ \#include.*\".*\" ]]; then 
+                include=${line%\"*}
+                include=${include##*\"}
+                include=${include##*/}
+                for path in `find . -name ${include}`; do
+                    dir=${path%/*}
+                    [[ ${includes[${dir}]} ]] || includes[${dir}]=1
+                done
+            fi
+        done < ${file}
+    done
+
+    for include in ${!includes[@]}; do
+        echo ${pwdir}${include#*.}
+    done
+}
+
 function_path=~/.settings/function
 if [[ -f $function_path ]]; then
     source $function_path
