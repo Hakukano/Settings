@@ -82,9 +82,7 @@ if has('nvim')
     let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
     let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
     let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
-endif
-
-if !has('nvim')
+else
     if has('cscope')
         set cscopetag cscopeverbose
         cnoreabbrev csa cs add
@@ -99,6 +97,9 @@ endif
 if has('python') || has('python2') || has('python3')
     nnoremap <Leader>ycf :YcmCompleter FixIt<CR>
     nnoremap <Leader>ycg :YcmCompleter GoTo<CR>
+    " nnoremap <Leader>ycgc :YcmCompleter GoToDeclaration<CR>
+    " nnoremap <Leader>ycgf :YcmCompleter GoToDefinition<CR>
+    " nnoremap <Leader>ycgi :YcmCompleter GoToInclude<CR>
     nnoremap <Leader>ycr :YcmRestartServer<CR>
     nnoremap <Leader>yct :YcmCompleter GetType<CR>
 endif

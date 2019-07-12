@@ -9,22 +9,29 @@ find_includes() {
     pwdir=`pwd`
 
     if [[ ${1} == "cpp" ]]; then
-        totalFiles=`find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' | wc -l`
+        headers=`ag --cpp --cc '^ *#include.*\".*\" *' | grep -v \* | cut -d ':' -f 3 | cut -d '"' -f 2 | sort -u`
+        totalFiles=`echo ${headers} | tr ' ' '\n' | wc -l`
         currentFiles=0
-        echo "Total CPP related files found: ${totalFiles}"
+        echo "Total header files found: ${totalFiles}"
         echo " "
-        for file in `find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp'`; do
-            while IFS= read -r line; do
-                if [[ ${line} =~ \#include.*\".*\" ]]; then 
-                    include=${line%\"*}
-                    include=${include##*\"}
-                    include=${include##*/}
-                    for path in `find . -name ${include}`; do
-                        dir=${path%/*}
-                        [[ ${includes[${dir}]} ]] || includes[${dir}]=1
-                    done
-                fi
-            done < ${file}
+        for header in `echo ${headers}`; do
+        #     while IFS= read -r line; do
+        #         if [[ ${line} =~ \#include.*\".*\" ]]; then 
+        #             include=${line%\"*}
+        #             include=${include##*\"}
+        #             include=${include##*/}
+        #             for path in `find . -name ${include}`; do
+        #                 dir=${path%/*}
+        #                 [[ ${includes[${dir}]} ]] || includes[${dir}]=1
+        #             done
+        #         fi
+        #     done < ${file}
+        #     currentFiles=$((${currentFiles} + 1))
+        #     echo -en "\e[1A"; echo -e "\e[0K\rDone: ${currentFiles} == $((${currentFiles} * 100 / totalFiles))%"
+            for file in `find . -name ${header##*/}`; do
+                dir=`dirname ${file}`
+                [[ ${includes[${dir}]} ]] || includes[${dir}]=1
+            done
             currentFiles=$((${currentFiles} + 1))
             echo -en "\e[1A"; echo -e "\e[0K\rDone: ${currentFiles} == $((${currentFiles} * 100 / totalFiles))%"
         done

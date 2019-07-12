@@ -71,8 +71,7 @@ if has('nvim')
     Plug 'alx741/vim-hindent'
     Plug 'mfulz/cscope.nvim'
     Plug 'neovimhaskell/haskell-vim'
-endif
-if !has('nvim')
+else
     Plug 'vim-scripts/cscope.vim'
 endif
 if has('python') || has('python2') || has('python3')
