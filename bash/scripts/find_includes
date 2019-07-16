@@ -15,19 +15,6 @@ find_includes() {
         echo "Total header files found: ${totalFiles}"
         echo " "
         for header in `echo ${headers}`; do
-        #     while IFS= read -r line; do
-        #         if [[ ${line} =~ \#include.*\".*\" ]]; then 
-        #             include=${line%\"*}
-        #             include=${include##*\"}
-        #             include=${include##*/}
-        #             for path in `find . -name ${include}`; do
-        #                 dir=${path%/*}
-        #                 [[ ${includes[${dir}]} ]] || includes[${dir}]=1
-        #             done
-        #         fi
-        #     done < ${file}
-        #     currentFiles=$((${currentFiles} + 1))
-        #     echo -en "\e[1A"; echo -e "\e[0K\rDone: ${currentFiles} == $((${currentFiles} * 100 / totalFiles))%"
             for file in `find . -name ${header##*/}`; do
                 dir=`dirname ${file}`
                 [[ ${includes[${dir}]} ]] || includes[${dir}]=1
