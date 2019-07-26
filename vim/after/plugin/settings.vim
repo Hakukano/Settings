@@ -1,3 +1,4 @@
+" <<<< Xuyuanp/nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
             \ "Modified"  : "✹",
             \ "Staged"    : "✚",
@@ -10,10 +11,18 @@ let g:NERDTreeIndicatorMapCustom = {
             \ 'Ignored'   : '☒',
             \ "Unknown"   : "?"}
 let g:NERDTreeShowIgnoredStatus = 1
+" >>>>
 
+" <<<< airblade/vim-gitgutter
+set updatetime=100
+" >>>>
+
+" <<<< flazz/vim-colorschemes
 colorscheme Monokai
 set guifont=Lucida_Console:h12:cANSI:qDRAFT
+" >>>>
 
+" <<<< junegunn/fzf
 " Command for git grep
 " - fzf#vim#grep(command, with_column, [options], [fullscreen])
 command! -bang -nargs=* GGrep
@@ -49,20 +58,34 @@ command! -bang -nargs=* Rg
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
             \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" >>>>
 
-
+" <<<< mattn/emmet-vim
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+" >>>>
 
+" <<<< mbbill/undotree
 nnoremap <Leader>utt :UndotreeToggle<CR>
+" >>>>
 
+" <<<< rhysd/vim-clang-format
 let g:clang_format#style_options = {
             \ "ColumnLimit" : 0}
+" >>>>
 
+" <<<< scrooloose/nerdtree
 let NERDTreeShowHidden=1
+" >>>>
 
 if has('nvim')
+    " <<<< autozimu/LanguageClient-neovim
+    let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'] }
+    let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+    " >>>>
+
+    " <<<< mfulz/cscope.nvim
     " Path to store the cscope files (cscope.files and cscope.out)
     " Defaults to '~/.cscope'
     let g:cscope_dir = '~/.nvim-cscope'
@@ -74,7 +97,9 @@ if has('nvim')
     " Update the cscope files on startup of cscope.
     " Defaults to off
     let g:cscope_update_on_start = 1
+    " >>>>
 
+    " <<<< neovimhaskell/haskell-vim
     let  g:haskell_enable_quantification    =  1  "  to  enable  highlighting  of  `forall`
     let  g:haskell_enable_recursivedo       =  1  "  to  enable  highlighting  of  `mdo`      and       `rec`
     let  g:haskell_enable_arrowsyntax       =  1  "  to  enable  highlighting  of  `proc`
@@ -82,7 +107,10 @@ if has('nvim')
     let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
     let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
     let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
+    " >>>>
+
 else
+    " <<<< vim-scripts/cscope.vim
     if has('cscope')
         set cscopetag cscopeverbose
         cnoreabbrev csa cs add
@@ -92,9 +120,11 @@ else
         cnoreabbrev csr cs reset
         cnoreabbrev css cs show
     endif
+    " >>>>
 endif
 
 if has('python') || has('python2') || has('python3')
+    " <<<< Valloric/YouCompleteMe
     nnoremap <Leader>ycf :YcmCompleter FixIt<CR>
     nnoremap <Leader>ycg :YcmCompleter GoTo<CR>
     " nnoremap <Leader>ycgc :YcmCompleter GoToDeclaration<CR>
@@ -102,27 +132,41 @@ if has('python') || has('python2') || has('python3')
     " nnoremap <Leader>ycgi :YcmCompleter GoToInclude<CR>
     nnoremap <Leader>ycr :YcmRestartServer<CR>
     nnoremap <Leader>yct :YcmCompleter GetType<CR>
+    if has('win32')
+        let g:ycm_global_ycm_extra_conf = '~/vimfiles/ycm_extra_conf.py'
+    else
+        let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+    endif
+    let g:ycm_autoclose_preview_window_after_insertion  =  1
+    let g:ycm_confirm_extra_conf                        =  0
+    let g:ycm_max_diagnostics_to_display                =  0
+    let g:ycm_min_num_of_chars_for_completion           =  1
+    let g:ycm_seed_identifiers_with_syntax              =  1
+    " >>>>
 endif
-
-if has('win32')
-    let g:ycm_global_ycm_extra_conf = '~/vimfiles/ycm_extra_conf.py'
-else
-    let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
-endif
-let  g:ycm_autoclose_preview_window_after_insertion  =  1
-let  g:ycm_confirm_extra_conf                        =  0
-let  g:ycm_max_diagnostics_to_display                =  0
-let  g:ycm_min_num_of_chars_for_completion           =  1
-let  g:ycm_seed_identifiers_with_syntax              =  1
 
 augroup plugins
     autocmd!
 
-    autocmd FileType cpp setlocal tabstop=2
+    " <<<< rhysd/vim-clang-format
     autocmd FileType cpp nnoremap <Leader>cf :ClangFormat<CR>
     autocmd FileType cpp xnoremap <Leader>cf :ClangFormat<CR>
+    " >>>>
 
+    " <<<< scrooloose/nerdtree
     autocmd vimenter * NERDTree
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    " >>>>
+
+    " <<<< autozimu/LanguageClient-neovim
+    autocmd FileType haskell nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+    autocmd FileType haskell nnoremap <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+    autocmd FileType haskell nnoremap <Leader>ld :call LanguageClient#textDocument_definition()<CR>
+    autocmd FileType haskell nnoremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+    autocmd FileType haskell nnoremap <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+    autocmd FileType haskell nnoremap <Leader>lb :call LanguageClient#textDocument_references()<CR>
+    autocmd FileType haskell nnoremap <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+    autocmd FileType haskell nnoremap <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+    " >>>>
 augroup END
