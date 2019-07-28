@@ -26,13 +26,13 @@ pip[{2,3}] install neovim
 sudo apt install silversearcher-ag
 sudo apt install ripgrep
 sudo apt install clang-format
-sudo apt install haskell-stack
+curl -sSL https://get.haskellstack.org/ | sh
 sudo apt install libicu-dev libtinfo-dev libgmp-dev
 cd ~/Git
 git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
 cd haskell-ide-engine
 stack upgrade
-stack ./install.hs hie-8.6.4
+stack ./install.hs hie-<latest_version>
 stack ./install.hs build-data
 nvim
 :PlugInstall
@@ -41,8 +41,8 @@ Q
 cd ~/.vim/plugged/YouCompleteMe
 sudo apt install cscope
 sudo apt install cmake
-sudo apt install openjdk-13-jdk
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo apt install openjdk-<latest_version>-jdk
+curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
 ```
 
