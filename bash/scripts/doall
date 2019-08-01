@@ -1,12 +1,15 @@
 #!/bin/bash
 
 usage() {
-    echo "doall {apt|gpl|gs}"
+    echo "doall {update|gpl|gs}"
 }
 
 doall() {
-    if [[ ${1} == "apt" ]]; then
+    if [[ ${1} == "update" ]]; then
         sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean
+        npm update
+        rustup update
+        stack upgrade && stack update
     elif [[ ${1} == "gpl" ]]; then
         for dir in `ls`; do
             echo "********** Entering ${dir} **********"

@@ -13,6 +13,8 @@ sudo apt install git
 ## npm
 
 ```bash
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt install nodejs
 sudo apt install npm
 ```
 
@@ -26,6 +28,7 @@ pip[{2,3}] install neovim
 sudo apt install silversearcher-ag
 sudo apt install ripgrep
 sudo apt install clang-format
+sudo apt install cscope
 curl -sSL https://get.haskellstack.org/ | sh
 sudo apt install libicu-dev libtinfo-dev libgmp-dev
 cd ~/Git
@@ -39,7 +42,6 @@ nvim
 :UpdateRemotePlugins
 Q
 cd ~/.vim/plugged/YouCompleteMe
-sudo apt install cscope
 sudo apt install cmake
 sudo apt install openjdk-<latest_version>-jdk
 curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
@@ -47,6 +49,18 @@ curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ```
 
 # Optional list
+
+## chromium
+
+```bash
+sudo apt install chromium-browser
+```
+
+## htop
+
+```bash
+sudo apt install htop
+```
 
 ## gradle
 
@@ -69,7 +83,7 @@ sudo apt install tmux
 # Daily update check
 
 ```bash
-doall apt
+doall update
 cd ~/Git
 doall gs
 doall gpl
