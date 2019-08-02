@@ -74,10 +74,28 @@ sudo apt install gradle
 sudo apt install qt5-default
 ```
 
+## tldr
+
+```bash
+sudo apt install tldr
+```
+
 ## tmux
 
 ```bash
 sudo apt install tmux
+```
+
+## tree
+
+```bash
+sudo apt install tree
+```
+
+## xclip
+
+```bash
+sudo apt install xclip
 ```
 
 # Daily update check
