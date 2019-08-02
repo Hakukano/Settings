@@ -5,6 +5,7 @@ usage() {
 }
 
 doall() {
+    pwdir=`pwd`
     if [[ ${1} == "update" ]]; then
         sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean
         npm update
@@ -13,14 +14,16 @@ doall() {
     elif [[ ${1} == "gpl" ]]; then
         for dir in `ls`; do
             echo "********** Entering ${dir} **********"
-            [[ -d ${dir} ]] && cd ${dir} && git pull && cd ..
+            [[ -d ${dir} ]] && cd ${dir} && git pull
+            cd ${pwdir}
             echo "********** Leaving ${dir} **********"
             echo " "
         done
     elif [[ ${1} == "gs" ]]; then
         for dir in `ls`; do
             echo "********** Entering ${dir} **********"
-            [[ -d ${dir} ]] && cd ${dir} && git status && cd ..
+            [[ -d ${dir} ]] && cd ${dir} && git status
+            cd ${pwdir}
             echo "********** Leaving ${dir} **********"
             echo " "
         done
