@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage() {
-    echo "doall {update|gpl|gs}"
+    echo "Usage: doall {update|gpl|gs}"
 }
 
 doall() {
@@ -27,8 +27,10 @@ doall() {
             echo "********** Leaving ${dir} **********"
             echo " "
         done
+    else
+        usage && exit 0
     fi
 }
 
-[[ ${#} -ne 1 ]] && usage && exit 1
+[[ ${#} -ne 1 ]] && usage && exit 0
 doall ${1}

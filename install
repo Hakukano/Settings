@@ -54,8 +54,12 @@ for src in ${!LINKS[@]}; do
 done
 
 local_settings=$HOME/.settings
+local_alias="alias"
+local_bashrc="extendrc"
+local_function="function"
+local_path="path"
 mkdir -p $local_settings
-[[ ! -e $local_settings/alias ]] && echo "# Local Aliases" > $local_settings/alias
-[[ ! -e $local_settings/extendrc ]] && echo "# Local Bashrc" > $local_settings/extendrc
-[[ ! -e $local_settings/function ]] && echo "# Local Functions" > $local_settings/function
-[[ ! -e $local_settings/path ]] && echo "# Local Paths" > $local_settings/path
+[[ ! -e $local_settings/${local_alias}    ]]  &&  echo "#!/bin/bash\n# Local Aliases"    >  $local_settings/${local_alias}
+[[ ! -e $local_settings/${local_bashrc}   ]]  &&  echo "#!/bin/bash\n# Local Bashrc"     >  $local_settings/${local_bashrc}
+[[ ! -e $local_settings/${local_function} ]]  &&  echo "#!/bin/bash\n# Local Functions"  >  $local_settings/${local_function}
+[[ ! -e $local_settings/${local_path}     ]]  &&  echo "#!/bin/bash\n# Local Paths"      >  $local_settings/${local_path}

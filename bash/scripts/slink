@@ -39,5 +39,5 @@ slink() {
     fi
 }
 
-[[ ${#} -ne 2 ]] && usage && exit 1
+[[ ${#} -ne 2 ]] && usage && exit 0
 slink ${1} ${2}

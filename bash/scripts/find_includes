@@ -10,25 +10,27 @@ find_includes() {
 
     if [[ ${1} == "cpp" ]]; then
         headers=`ag --cpp --cc '^ *#include.*\".*\" *' | grep -v \* | cut -d ':' -f 3 | cut -d '"' -f 2 | sort -u`
-        totalFiles=`echo ${headers} | tr ' ' '\n' | wc -l`
-        currentFiles=0
-        echo "Total header files found: ${totalFiles}"
+        total_files=`echo ${headers} | tr ' ' '\n' | wc -l`
+        current_files=0
+        echo "Total header files found: ${total_files}"
         echo " "
         for header in `echo ${headers}`; do
             for file in `find . -name ${header##*/}`; do
                 dir=`dirname ${file}`
                 [[ ${includes[${dir}]} ]] || includes[${dir}]=1
             done
-            currentFiles=$((${currentFiles} + 1))
-            echo -en "\e[1A"; echo -e "\e[0K\rDone: ${currentFiles} == $((${currentFiles} * 100 / totalFiles))%"
+            current_files=$((${current_files} + 1))
+            echo -en "\e[1A"; echo -e "\e[0K\rDone: ${current_files} == $((${current_files} * 100 / total_files))%"
         done
 
         rm -f ${2}
         for include in ${!includes[@]}; do
             echo ${pwdir}${include#*.} >> ${2}
         done
+    else
+        usage && exit 0
     fi
 }
 
-[[ ${#} -ne 2 ]] && usage && exit 1
+[[ ${#} -ne 2 ]] && usage && exit 0
 find_includes ${1} ${2}
