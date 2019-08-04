@@ -8,7 +8,8 @@ doall() {
     pwdir=`pwd`
     if [[ ${1} == "update" ]]; then
         sudo apt update && sudo apt upgrade -y && sudo apt auto-remove -y && sudo apt auto-clean
-        npm update
+        npm -g install npm
+        npm -g update
         rustup update
         stack upgrade && stack update
     elif [[ ${1} == "gpl" ]]; then
