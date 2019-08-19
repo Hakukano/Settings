@@ -10,7 +10,11 @@ fi
 export EDITOR=vim
 
 # User specific environment and startup programs
-export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.scripts:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.npm/bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 local_path=~/.settings/path
 if [[ -f $local_path ]]; then
