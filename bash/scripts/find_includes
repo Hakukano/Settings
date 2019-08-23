@@ -28,9 +28,9 @@ find_includes() {
             echo ${pwdir}${include#*.} >> ${2}
         done
     else
-        usage && exit 0
+        usage && exit 1
     fi
 }
 
-[[ ${#} -ne 2 ]] && usage && exit 0
+[[ ${#} -ne 2 ]] && usage && exit 1
 find_includes ${1} ${2}

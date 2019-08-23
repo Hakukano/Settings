@@ -31,9 +31,9 @@ doall() {
             echo " "
         done
     else
-        usage && exit 0
+        usage && exit 1
     fi
 }
 
-[[ ${#} -ne 1 ]] && usage && exit 0
+[[ ${#} -ne 1 ]] && usage && exit 1
 doall ${1}
