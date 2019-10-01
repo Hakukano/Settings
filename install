@@ -5,6 +5,7 @@ declare -A LINKS=(
     [".bashrc"]="bash/bashrc"
     [".config/git"]="git"
     [".config/nvim"]="nvim"
+    [".config/starship.toml"]="starship/starship.toml"
     [".npmrc"]="npm/npmrc"
     [".scripts"]="bash/scripts"
     [".ssh/config"]="ssh/config"
@@ -63,3 +64,4 @@ mkdir -p $local_settings
 [[ ! -e $local_settings/${local_bashrc}   ]]  &&  echo "#!/bin/bash\n# Local Bashrc"     >  $local_settings/${local_bashrc}
 [[ ! -e $local_settings/${local_function} ]]  &&  echo "#!/bin/bash\n# Local Functions"  >  $local_settings/${local_function}
 [[ ! -e $local_settings/${local_path}     ]]  &&  echo "#!/bin/bash\n# Local Paths"      >  $local_settings/${local_path}
+exit 0

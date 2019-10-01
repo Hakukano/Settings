@@ -1,0 +1,130 @@
+prompt_order = [
+    "username",
+    "hostname",
+    "kubernetes",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "package",
+    "nodejs",
+    "ruby",
+    "rust",
+    "python",
+    "golang",
+    "java",
+    "nix_shell",
+    "memory_usage",
+    "aws",
+    "env_var",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "time",
+    "character",
+]
+
+[aws]
+style = "bold yellow"
+symbol = "🅰 "
+
+[battery]
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+full_symbol = "🔋"
+
+[[battery.display]]
+style = "bold red"
+threshold = 10
+
+[[battery.display]]
+style = "bold yellow"
+threshold = 30
+
+[character]
+error_symbol = "✗"
+style_failure = "bold red"
+style_success = "bold green"
+symbol = "➜"
+use_symbol_for_status = true
+vicmd_symbol = "❮"
+
+[cmd_duration]
+min_time = 2
+prefix = "took "
+style = "bold yellow"
+
+[directory]
+style = "bold cyan"
+truncate_to_repo = false
+truncation_length = 10
+
+[env_var]
+# default = ""
+# symbol = ""
+# variable = ""
+prefix = ""
+style = "dimmed black"
+suffix = ""
+
+[git_branch]
+style = "bold purple"
+symbol = "🌱 "
+truncation_length = "2^63 - 1"
+truncation_symbol = "…"
+
+[git_state]
+am = "AM"
+am_or_rebase = "AM/REBASING"
+bisert = "BISERTING"
+cherry_pick = "🍒 PICKING"
+merge = "MERGING"
+progress_divider = " of "
+rebase = "REBASING"
+revert = "REVERTING"
+style = "bold yellow"
+
+[git_status]
+ahead = "🏎💨"
+behind = "😰"
+conflicted = "🏳"
+deleted = "🗑"
+diverged = "😵"
+modified = "📝"
+prefix = "["
+renamed = "👅"
+show_sync_count = false
+staged = "➕"
+stashed = "📦"
+style = "bold red"
+suffix = "]"
+untracked = "🤷"
+
+[hostname]
+prefix = "⟪"
+ssh_only = false
+style = "bold dimmed green"
+suffix = "⟫"
+
+[jobs]
+style = "bold blue"
+symbol = "✦ "
+threshold = 1
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = true
+style = "bold dimmed white"
+symbol = "🐏 "
+threshold = -1
+
+[username]
+show_always = true
+style_root = "bold red"
+style_user = "bold yellow"
+
+[time]
+disabled = false
+format = "🕙[ %T ]"

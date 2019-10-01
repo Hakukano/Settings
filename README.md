@@ -48,6 +48,14 @@ curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
 ```
 
+## starship
+
+```bash
+sudo apt install fonts-firacode
+cargo install starship
+```
+Switch terminal font to fira code
+
 # Optional list
 
 ## chromium

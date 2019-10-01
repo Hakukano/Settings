@@ -66,3 +66,6 @@ extendrc_path=~/.settings/extendrc
 if [[ -f $extendrc_path ]]; then
     source $extendrc_path
 fi
+
+# Change bash prompt to starship
+[[ -x `command -v starship` ]] && eval "$(starship init bash)"
