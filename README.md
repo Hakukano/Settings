@@ -56,6 +56,13 @@ cargo install starship
 ```
 Switch terminal font to fira code
 
+## thefuck
+
+```bash
+sudo apt install python3-dev python3-pip python3-setuptools
+sudo pip3 install thefuck
+```
+
 # Optional list
 
 ## chromium

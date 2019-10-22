@@ -69,3 +69,4 @@ fi
 
 # Change bash prompt to starship
 [[ -x `command -v starship` ]] && eval "$(starship init bash)"
+[[ -x `command -v thefuck` ]] && eval "$(thefuck --alias)"
