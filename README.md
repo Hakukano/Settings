@@ -27,6 +27,7 @@ sudo apt install python[{2,3}]-pip
 pip[{2,3}] install neovim
 sudo apt install silversearcher-ag
 sudo apt install ripgrep
+sudo apt install clang
 sudo apt install clang-format
 sudo apt install cscope
 curl -sSL https://get.haskellstack.org/ | sh
@@ -46,21 +47,6 @@ sudo apt install cmake
 sudo apt install openjdk-<latest_version>-jdk
 curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
-```
-
-## starship
-
-```bash
-sudo apt install fonts-firacode
-cargo install starship
-```
-Switch terminal font to fira code
-
-## thefuck
-
-```bash
-sudo apt install python3-dev python3-pip python3-setuptools
-sudo pip3 install thefuck
 ```
 
 # Optional list
@@ -87,6 +73,21 @@ sudo apt install gradle
 
 ```bash
 sudo apt install qt5-default
+```
+
+## starship
+
+```bash
+sudo apt install fonts-firacode
+cargo install starship
+```
+Switch terminal font to fira code
+
+## thefuck
+
+```bash
+sudo apt install python3-dev python3-pip python3-setuptools
+sudo pip3 install thefuck
 ```
 
 ## tldr
