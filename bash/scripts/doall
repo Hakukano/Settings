@@ -1,17 +1,20 @@
 #!/bin/bash
 
 usage() {
-    echo "Usage: doall {update|gpl|gs}"
+    echo 'Usage: doall {update|gpl|gs}'
 }
 
 doall() {
     pwdir=`pwd`
-    if [[ ${1} == "update" ]]; then
+    if [[ ${1} == 'update' ]]; then
+        cd ~/Git && doall gpl
+        cd ~
         sudo apt update && sudo apt upgrade -y --allow-downgrades && sudo apt auto-remove -y && sudo apt auto-clean
         npm -g install npm
         npm -g update
         rustup update
         stack upgrade && stack update
+        nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
     elif [[ ${1} == "gpl" ]]; then
         for dir in `ls`; do
             [[ -d ${dir} ]] || continue
