@@ -129,8 +129,12 @@ Q
 
 # Shadowsocks Config
 
-## Client Global for Ubuntu
+## Server script
 
 ```bash
-sudo genpac --proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
+wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+sudo chmod a+x shadowsocks-all.sh
+./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ```
+
+Or use cached script under ss/
