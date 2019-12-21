@@ -138,3 +138,9 @@ sudo chmod a+x shadowsocks-all.sh
 ```
 
 Or use cached script under ss/
+
+# Outline VPN Config
+
+```bash
+sudo wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh | bash
+```
