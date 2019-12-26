@@ -7,6 +7,7 @@ usage() {
 doall() {
     pwdir=`pwd`
     if [[ ${1} == 'update' ]]; then
+        cd ~/Git && doall gpl
         cd ~
         sudo apt update && sudo apt upgrade -y --allow-downgrades && sudo apt auto-remove -y && sudo apt auto-clean
         npm -g install npm
