@@ -100,7 +100,15 @@ sudo apt install tldr
 
 ```bash
 sudo apt install tmux
+git clone https://github.com/tmux-plugins/tpm ~/Git/tpm
+sudo apt install xsel
 ```
+
+Ctrl-b I to install plugins
+
+Ctrl-b U to update plugins
+
+Ctrl-b alt-u to remove plugins
 
 ## tree
 
