@@ -78,6 +78,8 @@ cpp_additional_flags = [
 
     # Use the latest standard if possible.
     "-std=c++1z",
+
+    "-I/usr/include"
 ]
 
 
