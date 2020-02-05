@@ -54,7 +54,10 @@ cleanup() {
 }
 
 lup() {
-    [[ -f 'docker-compose.yml' ]] || echo 'No docker-compose file detected' && exit 1
+    if [[ ! -f 'docker-compose.yml' ]]; then
+        echo 'No docker-compose file detected'
+        exit 1
+    fi
     cleanup all <<< y
     sudo docker-compose up --build
 }
@@ -62,8 +65,14 @@ lup() {
 sup() {
     img=${1}
 
-    [[ -f 'docker-compose.yml' ]] || echo 'No docker-compose file detected' && exit 1
-    [[ -f ${img} ]] || echo 'Image "'${img}'" not detected' && exit 1
+    if [[ ! -f 'docker-compose.yml' ]]; then
+        echo 'No docker-compose file detected'
+        exit 1
+    fi
+    if [[ ! -f ${img} ]]; then
+        echo 'Image "'${img}'" not detected'
+        exit 1
+    fi
 
     sudo docker load -i ${img}
     cleanup all <<< y
