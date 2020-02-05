@@ -1,0 +1,84 @@
+#!/bin/bash
+
+usage() {
+    echo 'focker (cleanup|lup|sup)'
+    echo '  cleanup (all|ei|k|rm)'
+    echo '    all: do all'
+    echo '    ei: empty image'
+    echo '    k: kill all containers'
+    echo '    rm: remove all containers'
+}
+
+cleanup() {
+    if [[ ${1} == 'all' ]]; then
+        read -n 1 -p 'Are you sure to clean up everything? (y|n) ' cu
+        echo ''
+        if [[ ${cu} == 'y' ]]; then
+            echo 'INFO: Cleaning up everything...'
+            sudo docker-compose kill
+            sudo docker-compose rm <<< y
+            sudo docker rmi `sudo docker images | grep '^<none>' | awk '{print $3;}'`
+        else
+            echo 'INFO: Aborting...'
+        fi
+    elif [[ ${1} == 'ei' ]]; then
+        read -n 1 -p 'Are you sure to clean up all empty images? (y|n) ' cu
+        echo ''
+        if [[ ${cu} == 'y' ]]; then
+            echo 'INFO: Removing all empty images...'
+            sudo docker rmi `sudo docker images | grep '^<none>' | awk '{print $3;}'`
+        else
+            echo 'INFO: Aborting...'
+        fi
+    elif [[ ${1} == 'k' ]]; then
+        read -n 1 -p 'Are you sure to kill all containers? (y|n) ' cu
+        echo ''
+        if [[ ${cu} == 'y' ]]; then
+            echo 'INFO: Killing all containers...'
+            sudo docker-compose kill
+        else
+            echo 'INFO: Aborting...'
+        fi
+    elif [[ ${1} == 'rm' ]]; then
+        read -n 1 -p 'Are you sure to remove all containers? (y|n) ' cu
+        echo ''
+        if [[ ${cu} == 'y' ]]; then
+            echo 'INFO: Removing all containers...'
+            sudo docker-compose rm <<< y
+        else
+            echo 'INFO: Aborting...'
+        fi
+    else
+        usage && exit 1
+    fi
+}
+
+lup() {
+    [[ -f 'docker-compose.yml' ]] || echo 'No docker-compose file detected' && exit 1
+    cleanup all <<< y
+    sudo docker-compose up --build
+}
+
+sup() {
+    img=${1}
+
+    [[ -f 'docker-compose.yml' ]] || echo 'No docker-compose file detected' && exit 1
+    [[ -f ${img} ]] || echo 'Image "'${img}'" not detected' && exit 1
+
+    sudo docker load -i ${img}
+    cleanup all <<< y
+    sudo docker-compose up
+}
+
+[[ ${#} -eq 0 ]] && usage && exit 1
+cmd=${1}
+if [[ ${cmd} == 'cleanup' ]] && [[ ${#} -eq 2 ]]; then
+    cleanup ${2}
+elif [[ ${cmd} == 'lup' ]]; then
+    lup
+elif [[ ${cmd} == 'sup' ]] && [[ ${#} -eq 2 ]]; then
+    sup ${2}
+else
+    usage && exit 1
+    exit 0
+fi
