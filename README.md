@@ -126,13 +126,6 @@ sudo apt install xclip
 
 ```bash
 doall update
-cd ~/Git
-doall gs
-doall gpl
-nvim
-:PlugUpdate
-:UpdateRemotePlugins
-Q
 ```
 
 # Shadowsocks Config
