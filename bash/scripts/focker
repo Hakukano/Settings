@@ -76,7 +76,7 @@ sup() {
 
     sudo docker load -i ${img}
     cleanup all <<< y
-    sudo docker-compose up
+    sudo docker-compose up -d
 }
 
 [[ ${#} -eq 0 ]] && usage && exit 1
