@@ -28,6 +28,7 @@ alias rm='rm -Iv'
 
 alias grep='grep --color=auto'
 
+# git
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit'
@@ -46,6 +47,22 @@ alias gs='git status'
 alias gsd='git stash drop'
 alias gsp='git stash pop'
 alias gss='git stash save'
+
+# svn
+alias sa='svn add'
+alias sb='svn blame'
+alias sc='svn commit'
+alias sch='svn checkout'
+alias sd='svn diff'
+alias sl='svn log'
+alias slv='svn log -vl'
+alias sm='svn merge --non-interactive --ignore-ancestry'
+alias sr='svn revert'
+alias srm="svn status | grep '^?' | awk '{print $2}' | xargs rm -rf"
+alias srr='svn revert -R'
+alias ss='svn status'
+alias ssq='svn status --quiet'
+alias sup='svn update'
 
 alias_path=~/.settings/alias
 if [[ -f $alias_path ]]; then
