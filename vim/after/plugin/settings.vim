@@ -84,6 +84,7 @@ let g:clang_format#style_options = {
 
 " <<<< scrooloose/nerdtree
 let NERDTreeShowHidden=1
+nnoremap <Leader>ntf :NERDTreeFocus<CR>
 " >>>>
 
 if has('nvim')
