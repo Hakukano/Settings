@@ -1,25 +1,16 @@
 #!/bin/bash
 
 declare -A LINKS=(
-    ['.Xresources']='i3/Xresources'
     ['.bash_profile']='bash/bash_profile'
     ['.bashrc']='bash/bashrc'
-    ['.config/compton.conf']='i3/config/compton.conf'
-    ['.config/dunst']='i3/config/dunst'
     ['.config/git']='git'
-    ['.config/i3']='i3/config/i3'
-    ['.config/i3status']='i3/config/i3status'
     ['.config/nvim']='nvim'
     ['.config/starship.toml']='starship/starship.toml'
-    ['.fonts/icomoon']='i3/fonts/icomoon'
     ['.npmrc']='npm/npmrc'
     ['.scripts']='bash/scripts'
     ['.ssh/config']='ssh/config'
     ['.tmux.conf']='tmux/tmux.conf'
-    ['.urxvt/ext']='i3/urxvt/ext'
     ['.vim']="vim"
-    ['.wallpaper.png']='i3/wallpaper.png'
-    ['.xsettingsd']='i3/xsettingsd'
 )
 
 windows_local() { [[ -n "$WINDIR" ]]; }
