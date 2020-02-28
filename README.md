@@ -1,10 +1,92 @@
+Table of Contents
+=================
+
+   * [System Preparation](#system-preparation)
+      * [Arch   i3](#arch--i3)
+   * [Installation](#installation)
+   * [Must-have list](#must-have-list)
+      * [git](#git)
+      * [npm](#npm)
+      * [nvim](#nvim)
+   * [Optional list](#optional-list)
+      * [chromium](#chromium)
+      * [htop](#htop)
+      * [gradle](#gradle)
+      * [qt](#qt)
+      * [starship](#starship)
+      * [thefuck](#thefuck)
+      * [tldr](#tldr)
+      * [tmux](#tmux)
+      * [tree](#tree)
+      * [xclip](#xclip)
+   * [Daily update check](#daily-update-check)
+   * [Shadowsocks Config](#shadowsocks-config)
+      * [Server script](#server-script)
+   * [Outline VPN Config](#outline-vpn-config)
+
+# System Preparation
+
+## Arch + i3
+
+* Install clean arch linux
+
+* Update system
+```bash
+pacman -Syu
+```
+
+* Add sudo group
+```bash
+groupadd sudo
+```
+
+* Uncomment sudo in visudo
+
+* Add user
+```bash
+useradd -m <username>
+passwd <username>
+```
+
+* Add user to sudo group
+```bash
+usermod -A -G sudo <username>
+```
+
+* Log in as user
+
+* Install i3
+```bash
+sudo pacman -S i3
+```
+
+* Edit Xinitrc
+```bash
+echo 'exec i3' >> ~/.xinitrc
+```
+
+* Install Xorg
+```bash
+sudo pacman -S xorg-server xorg-xinit
+```
+
+* Install utils
+```bash
+sudo pacman -S compton hsetroot rxvt-unicode xsel rofi fonts-noto fonts-mplus xsettingsd lxappearance scrot viewnior noto-fonts
+```
+
+* Start i3
+```bash
+startx
+```
+
 # Installation
 
-Run install in a clean environment, then install not-installed programs in the Must-have list below
+Run install.\* in a clean environment, then install not-installed programs in the Must-have list below
 
 # Must-have list
 
-## git(You should have got this one)
+## git
 
 ```bash
 sudo apt install git

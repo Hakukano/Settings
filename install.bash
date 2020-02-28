@@ -1,16 +1,25 @@
 #!/bin/bash
 
 declare -A LINKS=(
-    [".bash_profile"]="bash/bash_profile"
-    [".bashrc"]="bash/bashrc"
-    [".config/git"]="git"
-    [".config/nvim"]="nvim"
-    [".config/starship.toml"]="starship/starship.toml"
-    [".npmrc"]="npm/npmrc"
-    [".scripts"]="bash/scripts"
-    [".ssh/config"]="ssh/config"
-    [".tmux.conf"]="tmux/tmux.conf"
-    [".vim"]="vim"
+    ['.Xresources']='i3/Xresources'
+    ['.bash_profile']='bash/bash_profile'
+    ['.bashrc']='bash/bashrc'
+    ['.config/compton.conf']='i3/config/compton.conf'
+    ['.config/dunst']='i3/config/dunst'
+    ['.config/git']='git'
+    ['.config/i3']='i3/config/i3'
+    ['.config/i3status']='i3/config/i3status'
+    ['.config/nvim']='nvim'
+    ['.config/starship.toml']='starship/starship.toml'
+    ['.fonts/icomoon']='i3/fonts/icomoon'
+    ['.npmrc']='npm/npmrc'
+    ['.scripts']='bash/scripts'
+    ['.ssh/config']='ssh/config'
+    ['.tmux.conf']='tmux/tmux.conf'
+    ['.urxvt/ext']='i3/urxvt/ext'
+    ['.vim']="vim"
+    ['.wallpaper.png']='i3/wallpaper.png'
+    ['.xsettingsd']='i3/xsettingsd'
 )
 
 windows_local() { [[ -n "$WINDIR" ]]; }
@@ -60,8 +69,8 @@ local_bashrc="extendrc"
 local_function="function"
 local_path="path"
 mkdir -p $local_settings
-[[ ! -e $local_settings/${local_alias}    ]]  &&  echo "#!/bin/bash\n# Local Aliases"    >  $local_settings/${local_alias}
-[[ ! -e $local_settings/${local_bashrc}   ]]  &&  echo "#!/bin/bash\n# Local Bashrc"     >  $local_settings/${local_bashrc}
-[[ ! -e $local_settings/${local_function} ]]  &&  echo "#!/bin/bash\n# Local Functions"  >  $local_settings/${local_function}
-[[ ! -e $local_settings/${local_path}     ]]  &&  echo "#!/bin/bash\n# Local Paths"      >  $local_settings/${local_path}
+[[ ! -e $local_settings/${local_alias}    ]]  &&  echo -e "#!/bin/bash\n# Local Aliases"    >  $local_settings/${local_alias}
+[[ ! -e $local_settings/${local_bashrc}   ]]  &&  echo -e "#!/bin/bash\n# Local Bashrc"     >  $local_settings/${local_bashrc}
+[[ ! -e $local_settings/${local_function} ]]  &&  echo -e "#!/bin/bash\n# Local Functions"  >  $local_settings/${local_function}
+[[ ! -e $local_settings/${local_path}     ]]  &&  echo -e "#!/bin/bash\n# Local Paths"      >  $local_settings/${local_path}
 exit 0
