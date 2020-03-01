@@ -6,11 +6,17 @@ declare -A LINKS=(
     ['.config/git']='git'
     ['.config/nvim']='nvim'
     ['.config/starship.toml']='starship/starship.toml'
+    ['.font']='font'
     ['.npmrc']='npm/npmrc'
     ['.scripts']='bash/scripts'
     ['.ssh/config']='ssh/config'
     ['.tmux.conf']='tmux/tmux.conf'
-    ['.vim']="vim"
+    ['.vim']='vim'
+    ['.zgen-setup']='zsh/zgen-setup'
+    ['.zsh_aliases']='zsh/zsh_aliases'
+    ['.zsh_completion']='zsh/completion'
+    ['.zsh_functions']='zsh/zsh_functions'
+    ['.zshrc']='zsh/zshrc'
 )
 
 windows_local() { [[ -n "$WINDIR" ]]; }
