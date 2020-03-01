@@ -34,31 +34,31 @@ Run install.\* in a clean environment, then install not-installed programs in th
 ## git
 
 ```sh
-sudo apt install git
+sudo apt install -y git
 ```
 
 ## npm
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt install nodejs
+sudo apt install -y nodejs
 ```
 This should eventually install npm
 
 ## nvim
 
 ```sh
-sudo apt install neovim
-sudo apt install python[{2,3}]
-sudo apt install python[{2,3}]-pip
+sudo apt install -y neovim
+sudo apt install -y python[{2,3}]
+sudo apt install -y python[{2,3}]-pip
 pip[{2,3}] install neovim
-sudo apt install silversearcher-ag
-sudo apt install ripgrep
-sudo apt install clang
-sudo apt install clang-format
-sudo apt install cscope
+sudo apt install -y silversearcher-ag
+sudo apt install -y ripgrep
+sudo apt install -y clang
+sudo apt install -y clang-format
+sudo apt install -y cscope
 curl -sSL https://get.haskellstack.org/ | sh
-sudo apt install libicu-dev libtinfo-dev libgmp-dev
+sudo apt install -y libicu-dev libtinfo-dev libgmp-dev
 cd ~/Git
 git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
 cd haskell-ide-engine
@@ -70,8 +70,8 @@ nvim
 :UpdateRemotePlugins
 Q
 cd ~/.vim/plugged/YouCompleteMe
-sudo apt install cmake
-sudo apt install openjdk-<latest_version>-jdk
+sudo apt install -y cmake
+sudo apt install -y openjdk-<latest_version>-jdk
 curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
 ```
@@ -79,9 +79,9 @@ curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ## zsh
 
 ```sh
-sudo apt install zsh
+sudo apt install -y zsh
 chsh -s /bin/zsh
-sudo apt install stow
+sudo apt install -y stow
 fc-cache -vf ~/.font/
 ```
 Reboot && Change terminal font to Hack
@@ -91,37 +91,37 @@ Reboot && Change terminal font to Hack
 ## chromium
 
 ```sh
-sudo apt install chromium-browser
+sudo apt install -y chromium-browser
 ```
 
 ## docker
 
 ```sh
-sudo apt install docker
+sudo apt install -y docker
 ```
 
 ## htop
 
 ```sh
-sudo apt install htop
+sudo apt install -y htop
 ```
 
 ## gradle
 
 ```sh
-sudo apt install gradle
+sudo apt install -y gradle
 ```
 
 ## qt
 
 ```sh
-sudo apt install qt5-default
+sudo apt install -y qt5-default
 ```
 
 ## starship
 
 ```sh
-sudo apt install fonts-firacode
+sudo apt install -y fonts-firacode
 cargo install starship
 ```
 Switch terminal font to fira code
@@ -129,22 +129,22 @@ Switch terminal font to fira code
 ## thefuck
 
 ```sh
-sudo apt install python3-dev python3-pip python3-setuptools
+sudo apt install -y python3-dev python3-pip python3-setuptools
 sudo pip3 install thefuck
 ```
 
 ## tldr
 
 ```sh
-sudo apt install tldr
+sudo apt install -y tldr
 ```
 
 ## tmux
 
 ```sh
-sudo apt install tmux
+sudo apt install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/Git/tpm
-sudo apt install xsel
+sudo apt install -y xsel
 ```
 
 Ctrl-b I to install plugins
@@ -156,13 +156,13 @@ Ctrl-b alt-u to remove plugins
 ## tree
 
 ```sh
-sudo apt install tree
+sudo apt install -y tree
 ```
 
 ## xclip
 
 ```sh
-sudo apt install xclip
+sudo apt install -y xclip
 ```
 
 # Daily update check
