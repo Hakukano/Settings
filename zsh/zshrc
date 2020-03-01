@@ -1,20 +1,22 @@
-# Valid font modes:
-# flat, awesome-patched, awesome-fontconfig, nerdfont-complete, nerdfont-fontconfig
-if [[ -r ~/.powerlevel9k_font_mode ]]; then
-    POWERLEVEL9K_MODE=$(head -1 ~/.powerlevel9k_font_mode)
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 export COMPLETION_WAITING_DOTS="true"
 
-# Correct spelling for commands
-setopt correct
-
-# turn off the infernal correctall for filenames
-unsetopt correctall
-
 # Default editor
 export EDITOR=vim
+
+# Yes, these are a pain to customize. Fortunately, Geoff Greer made an online
+# tool that makes it easy to customize your color scheme and keep them in sync
+# across Linux and OS X/*BSD at http://geoff.greer.fm/lscolors/
+
+export LSCOLORS='Exfxcxdxbxegedabagacad'
+export LS_COLORS='di=1;34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
 
 # Base PATH
 PATH="$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin"
@@ -26,23 +28,42 @@ export PATH="$HOME/.npm/bin:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 export PATH="$HOME/bin:$PATH"
 
+# Keep a ton of history. You can reset these without editing .zshrc by
+# adding a file to ~/.zshrc.d.
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
 local_path=~/.settings/path
 if [[ -f $local_path ]]; then
     source $local_path
 fi
 
-# Yes, these are a pain to customize. Fortunately, Geoff Greer made an online
-# tool that makes it easy to customize your color scheme and keep them in sync
-# across Linux and OS X/*BSD at http://geoff.greer.fm/lscolors/
-
-export LSCOLORS='Exfxcxdxbxegedabagacad'
-export LS_COLORS='di=1;34;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
-
-# start zgen
-if [ -f ~/.zgen-setup ]; then
-    source ~/.zgen-setup
+local_alias=~/.settings/alias
+if [[ -f $local_alias ]]; then
+    source $local_alias
 fi
-# end zgen
+
+local_function=~/.settings/function
+if [[ -f $local_function ]]; then
+    source $local_function
+fi
+
+# Stuff only tested on zsh, or explicitly zsh-specific
+if [[ -r ~/.zsh_aliases ]]; then
+    source ~/.zsh_aliases
+fi
+
+if [[ -r ~/.zsh_functions ]]; then
+    source ~/.zsh_functions
+fi
+
+# Correct spelling for commands
+setopt correct
+
+# turn off the infernal correctall for filenames
+unsetopt correctall
 
 # set some history options
 setopt append_history
@@ -60,13 +81,6 @@ unsetopt HIST_BEEP
 # Share your history across all your terminal windows
 setopt share_history
 #setopt noclobber
-
-# Keep a ton of history. You can reset these without editing .zshrc by
-# adding a file to ~/.zshrc.d.
-HISTSIZE=100000
-SAVEHIST=100000
-HISTFILE=~/.zsh_history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 # set some options about directories
 setopt pushd_ignore_dups
@@ -106,26 +120,6 @@ bindkey " " globalias
 bindkey "^ " magic-space           # control-space to bypass completion
 bindkey -M isearch " " magic-space # normal space during searches
 
-# Stuff only tested on zsh, or explicitly zsh-specific
-if [ -r ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases
-fi
-
-if [ -r ~/.zsh_functions ]; then
-    source ~/.zsh_functions
-fi
-
-# Local settings
-alias_path=~/.settings/alias
-if [[ -f $alias_path ]]; then
-    source $alias_path
-fi
-
-function_path=~/.settings/function
-if [[ -f $function_path ]]; then
-    source $function_path
-fi
-
 # Speed up autocomplete, force prefix mapping
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
@@ -134,7 +128,7 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 
 # Load any custom zsh completions we've installed
 zc_path=~/.zsh_completion/
-if [ -d ${zc_path} ]; then
+if [[ -d ${zc_path} ]]; then
     if [[ `ls -1q ${zc_path} | wc -l` -gt 0 ]]; then
         for completion in ${zc_path}*
         do
@@ -156,6 +150,12 @@ typeset -aU path;
 # Closes #73
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-eval $(thefuck --alias)
+exists thefuck && eval `thefuck --alias`
+
+# start zgen
+if [[ -f ~/.zgen-setup ]]; then
+    source ~/.zgen-setup
+fi
+# end zgen

@@ -8,6 +8,7 @@ declare -A LINKS=(
     ['.config/starship.toml']='starship/starship.toml'
     ['.font']='font'
     ['.npmrc']='npm/npmrc'
+    ['.p10k.zsh']='zsh/p10k.zsh'
     ['.scripts']='bash/scripts'
     ['.ssh/config']='ssh/config'
     ['.tmux.conf']='tmux/tmux.conf'
