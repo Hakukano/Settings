@@ -112,6 +112,12 @@ sudo apt install -y htop
 sudo apt install -y gradle
 ```
 
+## neofetch
+
+```sh
+sudo apt install -y neofetch
+```
+
 ## qt
 
 ```sh

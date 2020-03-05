@@ -54,6 +54,9 @@ slink_local() {
     fi
 }
 
+# Clear zgen
+[[ -d ~/.zgen ]] && rm -rf ~/.zgen
+
 for src in ${!LINKS[@]}; do
     dest=${LINKS[$src]}
     mkdir -p $(dirname $HOME/$src)

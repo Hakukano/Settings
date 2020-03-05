@@ -130,6 +130,15 @@ if [[ -f ~/.zgen-setup ]]; then
 fi
 # end zgen
 
+# Stuff only tested on zsh, or explicitly zsh-specific
+if [[ -r ~/.zsh_aliases ]]; then
+    source ~/.zsh_aliases
+fi
+
+if [[ -r ~/.zsh_functions ]]; then
+    source ~/.zsh_functions
+fi
+
 local_alias=~/.settings/alias
 if [[ -f $local_alias ]]; then
     source $local_alias
@@ -138,15 +147,6 @@ fi
 local_function=~/.settings/function
 if [[ -f $local_function ]]; then
     source $local_function
-fi
-
-# Stuff only tested on zsh, or explicitly zsh-specific
-if [[ -r ~/.zsh_aliases ]]; then
-    source ~/.zsh_aliases
-fi
-
-if [[ -r ~/.zsh_functions ]]; then
-    source ~/.zsh_functions
 fi
 
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh

@@ -23,11 +23,10 @@ load-starter-plugin-list() {
     if [[ ! -f ~/.zsh-quickstart-no-omz ]]; then
         # Load some oh-my-zsh plugins
         zgen oh-my-zsh
-        zgen oh-my-zsh plugins/pip
-        zgen oh-my-zsh plugins/sudo
         zgen oh-my-zsh plugins/colored-man-pages
         zgen oh-my-zsh plugins/git
         zgen oh-my-zsh plugins/github
+        zgen oh-my-zsh plugins/pip
         zgen oh-my-zsh plugins/python
         zgen oh-my-zsh plugins/rsync
         zgen oh-my-zsh plugins/vagrant
@@ -48,7 +47,7 @@ load-starter-plugin-list() {
     zgen load unixorn/autoupdate-zgen
     zgen load unixorn/git-extra-commands
     zgen load unixorn/warhol.plugin.zsh
-    zgen load zsh-users/zsh-autosuggestions
+    zgen load zdharma/zsh-diff-so-fancy
     zgen load zsh-users/zsh-syntax-highlighting
     # >>>>
 

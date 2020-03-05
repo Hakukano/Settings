@@ -25,7 +25,7 @@ alias gc='git commit'
 alias gcb='git checkout -b'
 alias gce='git commit --allow-empty-message -m ""'
 alias gch='git checkout'
-alias gd='git diff'
+alias gd='git dsf'
 alias gdc='git diff --cached'
 alias gf='git fetch'
 alias gl='git log'
@@ -54,8 +54,6 @@ alias ss='svn status'
 alias ssq='svn status --quiet'
 alias sup='svn update'
 
-alias historysummary="history | awk '{a[\$2]++} END{for(i in a){printf \"%5d\t%s\n\",a[i],i}}' | sort -rn | head"
-
 # A couple of different external IP lookups depending on which is down.
 alias extip="curl -s icanhazip.com"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -66,7 +64,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # SSH stuff
 # Pass our credentials by default
 alias ssh='ssh -A'
-alias sshA='ssh -A'
 alias ssh_unkeyed='/usr/bin/ssh'
 
 alias scp_no_hostchecks='scp -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
@@ -77,33 +74,3 @@ alias nh_scp=scp_no_hostchecks
 alias nh_ssh=ssh_no_hostchecks
 alias nhscp=scp_no_hostchecks
 alias nhssh=ssh_no_hostchecks
-
-# Strip color codes from commands that insist on spewing them so we can
-# pipe them into files cleanly.
-alias stripcolors='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'
-
-# On the rare occasions I don't want to continue an interrupted download
-# I can always delete the incomplete fragment explicitly. I usually just
-# want to complete it.
-alias wget="wget -c"
-
-# Dump the last 20 history entries to make !number more convenient to use.
-alias zh="fc -l -d -D"
-
-# My typical tyops.
-alias gerp='grep'
-alias grep-i='grep -i'
-alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
-alias grepi='grep -i'
-alias knfie='knife'
-alias maek='make'
-alias psax='ps ax'
-alias pswax='ps wax'
-alias psxa='ps ax'
-alias raek='rake'
-alias tartvf='tar tvf'
-alias tartvzf='tar tvzf'
-alias tarxvf='tar xvf'
-
-# Help the lazy typists again.
-alias ..="cd .."
