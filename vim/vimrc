@@ -91,8 +91,6 @@ call plug#end()
 augroup vimrc
     autocmd!
 
-    autocmd BufEnter * silent! lcd %:p:h
-
     autocmd BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
                 \   exe "normal! g`\"" |
