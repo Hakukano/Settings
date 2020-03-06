@@ -53,6 +53,7 @@ sudo apt install -y python[{2,3}]
 sudo apt install -y python[{2,3}]-pip
 pip[{2,3}] install neovim
 sudo apt install -y silversearcher-ag
+curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 cd ~/Git
 git clone https://github.com/BurntSushi/ripgrep
 cd ripgrep
@@ -76,7 +77,6 @@ Q
 cd ~/.vim/plugged/YouCompleteMe
 sudo apt install -y cmake
 sudo apt install -y openjdk-<latest_version>-jdk
-curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
 ```
 
