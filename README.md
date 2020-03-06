@@ -48,12 +48,16 @@ This should eventually install npm
 ## nvim
 
 ```sh
-sudo apt install -y neovim
+sudo snap install --beta nvim --classic
 sudo apt install -y python[{2,3}]
 sudo apt install -y python[{2,3}]-pip
 pip[{2,3}] install neovim
 sudo apt install -y silversearcher-ag
-sudo apt install -y ripgrep
+cd ~/Git
+git clone https://github.com/BurntSushi/ripgrep
+cd ripgrep
+cargo build --release --features 'pcre2'
+sudo cp target/release/rg /bin/rg
 sudo apt install -y clang
 sudo apt install -y clang-format
 sudo apt install -y cscope

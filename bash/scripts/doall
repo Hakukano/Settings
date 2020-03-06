@@ -10,6 +10,7 @@ doall() {
         cd ~/Git && doall gpl
         cd ~
         sudo apt update && sudo apt dist-upgrade -y --allow-downgrades && sudo apt auto-remove -y && sudo apt auto-clean
+        sudo snap refresh
         npm -g install npm
         npm -g update
         rustup update
