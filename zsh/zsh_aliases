@@ -74,3 +74,9 @@ alias nh_scp=scp_no_hostchecks
 alias nh_ssh=ssh_no_hostchecks
 alias nhscp=scp_no_hostchecks
 alias nhssh=ssh_no_hostchecks
+
+# lsof
+alias listened='sudo lsof -i -P -n | rg LISTEN'
+
+# tar
+alias untar='tar -xvf'
