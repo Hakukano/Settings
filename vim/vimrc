@@ -26,7 +26,7 @@ set relativenumber
 set shiftwidth=0
 set smartindent
 set smarttab
-set tabstop=4
+set tabstop=2
 set timeoutlen=2000
 set wildmenu
 
@@ -99,8 +99,4 @@ augroup vimrc
     if has('win32')
         autocmd GUIEnter * simalt ~x
     endif
-
-    autocmd  FileType  cpp      setlocal  tabstop=2
-    autocmd  FileType  haskell  setlocal  tabstop=2
-    autocmd  FileType  pug      setlocal  tabstop=2
 augroup END
