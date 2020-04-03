@@ -26,6 +26,7 @@ load-starter-plugin-list() {
         zgen oh-my-zsh plugins/colored-man-pages
         zgen oh-my-zsh plugins/git
         zgen oh-my-zsh plugins/github
+        zgen oh-my-zsh plugins/kubectl
         zgen oh-my-zsh plugins/pip
         zgen oh-my-zsh plugins/python
         zgen oh-my-zsh plugins/rsync
@@ -43,7 +44,6 @@ load-starter-plugin-list() {
     zgen load peterhurford/git-it-on.zsh
     zgen load sharat87/pip-app
     zgen load skx/sysadmin-util
-    zgen load supercrabtree/k
     zgen load unixorn/autoupdate-zgen
     zgen load unixorn/git-extra-commands
     zgen load unixorn/warhol.plugin.zsh
