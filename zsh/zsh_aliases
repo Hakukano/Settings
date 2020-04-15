@@ -17,6 +17,7 @@ alias -- +x='chmod +x'
 alias -- -x='chmod -x'
 alias mkdir='mkdir -pv'
 alias rm='rm -Iv'
+alias vim='nvim'
 
 # git
 alias ga='git add'
