@@ -1,5 +1,5 @@
 if has('python3')
-    silent! python3 1
+  silent! python3 1
 endif
 
 filetype plugin indent on
@@ -71,32 +71,32 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 if has('nvim')
-    Plug 'alx741/vim-hindent'
-    Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-    Plug 'mfulz/cscope.nvim'
-    Plug 'neovimhaskell/haskell-vim'
+  Plug 'alx741/vim-hindent'
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+  Plug 'mfulz/cscope.nvim'
+  Plug 'neovimhaskell/haskell-vim'
 else
-    Plug 'vim-scripts/cscope.vim'
+  Plug 'vim-scripts/cscope.vim'
 endif
 if has('python') || has('python2') || has('python3')
-    Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe'
 endif
 if has('win32')
-    Plug 'xolox/vim-misc'
-    Plug 'xolox/vim-shell'
+  Plug 'xolox/vim-misc'
+  Plug 'xolox/vim-shell'
 endif
 call plug#end()
 
 augroup vimrc
-    autocmd!
+  autocmd!
 
-    autocmd BufReadPost *
-                \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-                \   exe "normal! g`\"" |
-                \ endif
+  autocmd BufReadPost *
+        \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
 
-    if has('win32')
-        autocmd GUIEnter * simalt ~x
-    endif
+  if has('win32')
+    autocmd GUIEnter * simalt ~x
+  endif
 augroup END
