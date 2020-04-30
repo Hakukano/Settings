@@ -11,6 +11,7 @@ Table of Contents
       * [chromium](#chromium)
       * [htop](#htop)
       * [gradle](#gradle)
+      * [opengl](#opengl)
       * [qt](#qt)
       * [sfml](#sfml)
       * [starship](#starship)
@@ -117,6 +118,12 @@ sudo apt install -y htop
 sudo apt install -y gradle
 ```
 
+## opengl
+
+```sh
+sudo apt install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+```
+
 ## neofetch
 
 ```sh
@@ -132,7 +139,7 @@ sudo apt install -y qt5-default
 ## sfml
 
 ```sh
-apt install libsfml-dev
+sudo apt install libsfml-dev
 ```
 
 ## starship
