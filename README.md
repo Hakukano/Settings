@@ -12,6 +12,7 @@ Table of Contents
       * [htop](#htop)
       * [gradle](#gradle)
       * [qt](#qt)
+      * [sfml](#sfml)
       * [starship](#starship)
       * [thefuck](#thefuck)
       * [tldr](#tldr)
@@ -126,6 +127,12 @@ sudo apt install -y neofetch
 
 ```sh
 sudo apt install -y qt5-default
+```
+
+## sfml
+
+```sh
+apt install libsfml-dev
 ```
 
 ## starship
