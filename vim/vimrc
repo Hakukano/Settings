@@ -68,6 +68,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdtree'
+Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 if has('nvim')
