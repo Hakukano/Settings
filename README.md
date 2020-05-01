@@ -121,7 +121,7 @@ sudo apt install -y gradle
 ## opengl
 
 ```sh
-sudo apt install libglu1-mesa-dev freeglut3-dev mesa-common-dev libglew-dev
+sudo apt install libglu1-mesa-dev freeglut3-dev mesa-common-dev libglew-dev libglm-dev
 ```
 
 ## neofetch
