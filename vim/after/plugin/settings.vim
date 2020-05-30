@@ -131,8 +131,8 @@ let g:any_jump_keyword_match_cursor_mode = 'word'
 " >>>>
 
 " <<<< rhysd/vim-clang-format
-let g:clang_format#style_options = {
-      \ "ColumnLimit" : 0}
+" let g:clang_format#style_options = {
+"       \ 'ColumnLimit' : 0}
 " >>>>
 
 " <<<< scrooloose/nerdtree
