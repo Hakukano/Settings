@@ -63,6 +63,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
+Plug 'mogelbrod/vim-jsonpath'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pechorin/any-jump.vim'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}

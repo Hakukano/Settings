@@ -74,6 +74,10 @@ autocmd FileType html,css EmmetInstall
 nnoremap <Leader>utt :UndotreeToggle<CR>
 " >>>>
 
+" <<<< mogelbrod/vim-jsonpath
+let g:jsonpath_register = '"'
+" >>>>
+
 " <<<< octol/vim-cpp-enhanced-highlight
 let  g:cpp_class_decl_highlight       =  1
 let  g:cpp_class_scope_highlight      =  0
@@ -281,6 +285,12 @@ endif
 
 augroup plugins
   autocmd!
+
+  " <<<< mogelbrod/vim-jsonpath
+  autocmd FileType json nnoremap <silent> <expr> <leader>jpe jsonpath#echo()
+  autocmd FileType json nnoremap <silent> <leader>jpg :JsonPath 
+  autocmd FileType json nnoremap <silent> <leader>jpp :JsonPath <C-R>"<CR>
+  " >>>>
 
   " <<<< rhysd/vim-clang-format
   autocmd FileType cpp nnoremap <Leader>cf :ClangFormat<CR>
