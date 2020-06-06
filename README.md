@@ -1,6 +1,8 @@
 Table of Contents
 =================
 
+   * [Arch](#arch)
+      * [Preinstallation](#preinstallation)
    * [Installation](#installation)
    * [Must-have list](#must-have-list)
       * [git](#git)
@@ -25,6 +27,41 @@ Table of Contents
       * [Server script](#server-script)
    * [Outline VPN Config](#outline-vpn-config)
 
+# Arch
+
+Follow the Installation guide on ArchWiki...
+
+## Preinstallation
+
+```sh
+ip address add XXX.XXX.XXX.XXX/XX dev XXX
+ip link set dev XXX up
+ip route add XXX.XXX.XXX.XXX dev XXX
+ip route add default via XXX.XXX.XXX.XXX
+echo -e 'namespace 8.8.8.8\nnamespace 8.8.4.4' >> /etc/resolv.conf
+pacman --noconfirm -S sudo
+groupadd sudo
+usermod -aG sudo XXX
+useradd -m XXX
+passwd XXX
+visudo
+uncomment %sudo & append XXX ALL=(ALL) NOPASSWD:ALL
+exit
+
+sudo pacman --noconfirm -Syu
+sudo pacman --noconfirm -S --needed base-devel git
+mkdir ~/Git
+cd ~/Git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg --noconfirm -si
+yay --noconfirm -S snapd
+sudo systemctl start snapd.service
+sudo ln -s /var/lib/snapd/snap /snap
+sudo pacman --noconfirm -S openssh
+sshkey-gen
+```
+
 # Installation
 
 At least have a ~/Git directory and all git repo goes in it.
@@ -35,11 +72,28 @@ Run install.\* in a clean environment, then install not-installed programs in th
 
 ## git
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S git
+```
+
+### apt
+
 ```sh
 sudo apt install -y git
 ```
 
+
 ## npm
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S nodejs npm
+```
+
+### apt
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -48,6 +102,34 @@ sudo apt install -y nodejs
 This should eventually install npm
 
 ## nvim
+
+### pacman
+
+```sh
+sudo snap install --beta nvim --classic
+sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack
+pip[{2,3}] install neovim
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cd ~/Git
+git clone https://github.com/BurntSushi/ripgrep
+cd ripgrep
+cargo build --release --features 'pcre2'
+sudo cp target/release/rg /bin/rg
+curl -sSL https://get.haskellstack.org/ | sh
+cd /tmp
+yay -G haskell-ide-engine
+cd haskell-ide-engine
+edit PKGBUILD to select a version
+makepkg --noconfirm -si
+nvim
+:PlugInstall
+:UpdateRemotePlugins
+Q
+cd ~/.vim/plugged/YouCompleteMe
+./install.py --clang-completer --java-completer --rust-completer --ts-completer
+```
+
+### apt
 
 ```sh
 sudo snap install --beta nvim --classic
@@ -84,6 +166,15 @@ sudo apt install -y openjdk-<latest_version>-jdk
 
 ## zsh
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S zsh stow ttf-hack
+chsh -s /bin/zsh
+```
+
+### apt
+
 ```sh
 sudo apt install -y zsh
 chsh -s /bin/zsh
@@ -96,11 +187,27 @@ Reboot && Change terminal font to Hack
 
 ## chromium
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S chromium
+```
+
+### apt
+
 ```sh
 sudo apt install -y chromium-browser
 ```
 
 ## docker
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S docker docker-compose
+```
+
+### apt
 
 ```sh
 sudo apt install -y docker
@@ -108,11 +215,27 @@ sudo apt install -y docker
 
 ## htop
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S htop
+```
+
+### apt
+
 ```sh
 sudo apt install -y htop
 ```
 
 ## gradle
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S gradle
+```
+
+### apt
 
 ```sh
 sudo apt install -y gradle
@@ -120,11 +243,27 @@ sudo apt install -y gradle
 
 ## opengl
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S mesa glew sdl2 sdl2_image glm freetype2
+```
+
+### apt
+
 ```sh
 sudo apt install libglu1-mesa-dev freeglut3-dev mesa-common-dev libglew-dev libglm-dev
 ```
 
 ## neofetch
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S neofetch
+```
+
+### apt
 
 ```sh
 sudo apt install -y neofetch
@@ -137,6 +276,14 @@ sudo apt install -y qt5-default
 ```
 
 ## sfml
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S neofetch
+```
+
+### apt
 
 ```sh
 sudo apt install libsfml-dev
@@ -152,6 +299,14 @@ Switch terminal font to fira code
 
 ## thefuck
 
+### pacman
+
+```sh
+sudo pip3 install thefuck
+```
+
+### apt
+
 ```sh
 sudo apt install -y python3-dev python3-pip python3-setuptools
 sudo pip3 install thefuck
@@ -159,11 +314,29 @@ sudo pip3 install thefuck
 
 ## tldr
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S tldr
+```
+
+### apt
+
 ```sh
 sudo apt install -y tldr
 ```
 
 ## tmux
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S tmux xsel
+cd ~/Git
+git clone https://github.com/tmux-plugins/tpm
+```
+
+### apt
 
 ```sh
 sudo apt install -y tmux
@@ -179,11 +352,27 @@ Ctrl-b alt-u to remove plugins
 
 ## tree
 
+### pacman
+
+```sh
+sudo pacman --noconfirm -S tree
+```
+
+### apt
+
 ```sh
 sudo apt install -y tree
 ```
 
 ## xclip
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S xclip
+```
+
+### apt
 
 ```sh
 sudo apt install -y xclip
