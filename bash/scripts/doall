@@ -1,42 +1,54 @@
 #!/bin/bash
 
 usage() {
-    echo 'Usage: doall {update|gpl|gs}'
+  echo 'Usage: doall {update|gpl|gs}'
 }
 
 doall() {
-    pwdir=`pwd`
-    if [[ ${1} == 'update' ]]; then
-        cd ~/Git && doall gpl
-        cd ~
-        sudo apt update && sudo apt dist-upgrade -y --allow-downgrades && sudo apt auto-remove -y && sudo apt auto-clean
-        sudo snap refresh
-        npm -g install npm
-        npm -g update
-        rustup update
-        stack upgrade && stack update
-        nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
-    elif [[ ${1} == "gpl" ]]; then
-        for dir in `ls`; do
-            [[ -d ${dir} ]] || continue
-            echo "********** Entering ${dir} **********"
-            cd ${dir} && git pull
-            cd ${pwdir}
-            echo "********** Leaving ${dir} **********"
-            echo " "
-        done
-    elif [[ ${1} == "gs" ]]; then
-        for dir in `ls`; do
-            [[ -d ${dir} ]] || continue
-            echo "********** Entering ${dir} **********"
-            cd ${dir} && git status
-            cd ${pwdir}
-            echo "********** Leaving ${dir} **********"
-            echo " "
-        done
-    else
-        usage && exit 1
+  pwdir=`pwd`
+  if [[ ${1} == 'update' ]]; then
+    cd ~/Git && doall gpl
+    cd ~
+    if command -v apt > /dev/null; then
+      sudo apt update && sudo apt dist-upgrade -y --allow-downgrades && sudo apt auto-remove -y && sudo apt auto-clean
     fi
+    if command -v pacman > /dev/null; then
+      sudo pacman --noconfirm -Syu
+      sudo pacman --noconfirm -Sc
+      sudo pacman --noconfirm -Qdtq | sudo pacman -Rs -
+    fi
+    if command -v yay > /dev/null; then
+      sudo yay --noconfirm -Syu
+      sudo yay --noconfirm -Sc
+      sudo yay --noconfirm -Qdtq | sudo yay -Rs -
+    fi
+    sudo snap refresh
+    npm -g install npm
+    npm -g update
+    rustup update
+    stack upgrade && stack update
+    nvim '+PlugUpdate' '+UpdateRemotePlugins' '+qa'
+  elif [[ ${1} == "gpl" ]]; then
+    for dir in `ls`; do
+      [[ -d ${dir} ]] || continue
+      echo "********** Entering ${dir} **********"
+      cd ${dir} && git pull
+      cd ${pwdir}
+      echo "********** Leaving ${dir} **********"
+      echo " "
+    done
+  elif [[ ${1} == "gs" ]]; then
+    for dir in `ls`; do
+      [[ -d ${dir} ]] || continue
+      echo "********** Entering ${dir} **********"
+      cd ${dir} && git status
+      cd ${pwdir}
+      echo "********** Leaving ${dir} **********"
+      echo " "
+    done
+  else
+    usage && exit 1
+  fi
 }
 
 [[ ${#} -ne 1 ]] && usage && exit 1
