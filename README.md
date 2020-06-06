@@ -78,8 +78,8 @@ sshkey-gen
 ## i3
 
 ```sh
-sudo pacman --noconfirm -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind picom
-yay --noconfirm -S polybar
+sudo pacman --noconfirm -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind picom noto-fonts-cjk noto-fonts-emoji noto-fonts
+yay --noconfirm -S polybar ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family
 ```
 
 # Installation

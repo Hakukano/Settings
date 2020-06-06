@@ -9,7 +9,7 @@ fi
 export COMPLETION_WAITING_DOTS="true"
 
 # Default editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # Base PATH
 PATH="$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin"
