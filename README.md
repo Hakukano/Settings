@@ -3,6 +3,7 @@ Table of Contents
 
    * [Arch](#arch)
       * [Preinstallation](#preinstallation)
+      * [i3](#i3)
    * [Installation](#installation)
    * [Must-have list](#must-have-list)
       * [git](#git)
@@ -29,16 +30,24 @@ Table of Contents
 
 # Arch
 
-Follow the Installation guide on ArchWiki...
+Follow the Installation guide on https://wiki.archlinux.org/index.php/Installation_guide
 
 ## Preinstallation
 
+### During guide
+
 ```sh
-ip address add XXX.XXX.XXX.XXX/XX dev XXX
-ip link set dev XXX up
-ip route add XXX.XXX.XXX.XXX dev XXX
-ip route add default via XXX.XXX.XXX.XXX
-echo -e 'namespace 8.8.8.8\nnamespace 8.8.4.4' >> /etc/resolv.conf
+pacstrap /mnt base linux linux-firmware vim network-tool netctl
+```
+
+### After guide su
+
+```sh
+sudo echo -e "Interface=XXX\nConnection=ethernet\nIP=static\nAddress=('XXX.XXX.XXX.XXX/XX')\nGateway='XXX.XXX.XXX.XXX'\nDNS=('XXX.XXX.XXX.XXX')" > /etc/netctl/ethernet_static
+sudo chmod +r /etc/netctl/ethernet_static
+sudo netctl start ethernet_static
+sudo netctl enable ethernet_static
+echo -e "namespace 8.8.8.8\nnamespace 8.8.4.4" >> /etc/resolv.conf
 pacman --noconfirm -S sudo
 groupadd sudo
 usermod -aG sudo XXX
@@ -47,7 +56,11 @@ passwd XXX
 visudo
 uncomment %sudo & append XXX ALL=(ALL) NOPASSWD:ALL
 exit
+```
 
+### In the user
+
+``` sh
 sudo pacman --noconfirm -Syu
 sudo pacman --noconfirm -S --needed base-devel git
 mkdir ~/Git
@@ -60,6 +73,13 @@ sudo systemctl start snapd.service
 sudo ln -s /var/lib/snapd/snap /snap
 sudo pacman --noconfirm -S openssh
 sshkey-gen
+```
+
+## i3
+
+```sh
+sudo pacman --noconfirm -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind picom
+yay --noconfirm -S polybar
 ```
 
 # Installation
@@ -127,6 +147,8 @@ nvim
 Q
 cd ~/.vim/plugged/YouCompleteMe
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
+~/.fzf/install
+source ~/.zshrc
 ```
 
 ### apt
@@ -169,7 +191,7 @@ sudo apt install -y openjdk-<latest_version>-jdk
 ### pacman
 
 ```sh
-sudo pacman --noconfirm -S zsh stow ttf-hack
+sudo pacman --noconfirm -S zsh stow
 chsh -s /bin/zsh
 ```
 
