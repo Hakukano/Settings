@@ -15,12 +15,12 @@ doall() {
     if command -v pacman > /dev/null; then
       sudo pacman --noconfirm -Syu
       sudo pacman --noconfirm -Sc
-      sudo pacman --noconfirm -Qdtq | sudo pacman -Rs -
+      sudo pacman --noconfirm -Qdtq | sudo pacman --noconfirm -Rs -
     fi
     if command -v yay > /dev/null; then
       sudo yay --noconfirm -Syu
       sudo yay --noconfirm -Sc
-      sudo yay --noconfirm -Qdtq | sudo yay -Rs -
+      sudo yay --noconfirm -Qdtq | sudo yay --noconfirm -Rs -
     fi
     sudo snap refresh
     npm -g install npm
