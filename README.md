@@ -7,9 +7,9 @@ Table of Contents
    * [Installation](#installation)
    * [Must-have list](#must-have-list)
       * [git](#git)
+      * [zsh](#zsh)
       * [npm](#npm)
       * [nvim](#nvim)
-      * [zsh](#zsh)
    * [Optional list](#optional-list)
       * [chromium](#chromium)
       * [htop](#htop)
@@ -103,6 +103,24 @@ sudo pacman --noconfirm -S git
 sudo apt install -y git
 ```
 
+## zsh
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S zsh stow
+chsh -s /bin/zsh
+```
+
+### apt
+
+```sh
+sudo apt install -y zsh
+chsh -s /bin/zsh
+sudo apt install -y stow
+fc-cache -vf ~/.font/
+```
+Reboot && Change terminal font to Hack
 
 ## npm
 
@@ -183,25 +201,6 @@ sudo apt install -y cmake
 sudo apt install -y openjdk-<latest_version>-jdk
 ./install.py --clang-completer --java-completer --rust-completer --ts-completer
 ```
-
-## zsh
-
-### pacman
-
-```sh
-sudo pacman --noconfirm -S zsh stow
-chsh -s /bin/zsh
-```
-
-### apt
-
-```sh
-sudo apt install -y zsh
-chsh -s /bin/zsh
-sudo apt install -y stow
-fc-cache -vf ~/.font/
-```
-Reboot && Change terminal font to Hack
 
 # Optional list
 
