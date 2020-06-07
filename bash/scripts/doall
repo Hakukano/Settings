@@ -18,9 +18,9 @@ doall() {
       sudo pacman --noconfirm -Qdtq | sudo pacman --noconfirm -Rs -
     fi
     if command -v yay > /dev/null; then
-      sudo yay --noconfirm -Syu
-      sudo yay --noconfirm -Sc
-      sudo yay --noconfirm -Qdtq | sudo yay --noconfirm -Rs -
+      yay --noconfirm -Syu
+      yay --noconfirm -Sc
+      yay --noconfirm -Qdtq | yay --noconfirm -Rs -
     fi
     sudo snap refresh
     npm -g install npm
