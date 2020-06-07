@@ -18,6 +18,7 @@ declare -A LINKS=(
     ['.ssh/config']='ssh/config'
     ['.tmux.conf']='tmux/tmux.conf'
     ['.vim']='vim'
+    ['.wallpaper']='wallpaper'
     ['.xinitrc']='i3/xinitrc'
     ['.zgen-setup']='zsh/zgen-setup'
     ['.zsh_aliases']='zsh/zsh_aliases'
