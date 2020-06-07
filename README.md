@@ -134,7 +134,6 @@ git clone https://github.com/BurntSushi/ripgrep
 cd ripgrep
 cargo build --release --features 'pcre2'
 sudo cp target/release/rg /bin/rg
-curl -sSL https://get.haskellstack.org/ | sh
 cd /tmp
 yay -G haskell-ide-engine
 cd haskell-ide-engine
