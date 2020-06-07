@@ -299,7 +299,7 @@ sudo apt install -y qt5-default
 ### pacman
 
 ```sh
-sudo pacman --noconfirm -S neofetch
+sudo pacman --noconfirm -S sfml
 ```
 
 ### apt
