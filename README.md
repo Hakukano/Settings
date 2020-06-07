@@ -43,15 +43,15 @@ pacstrap /mnt base linux linux-firmware vim net-tools netctl
 ### After guide su
 
 ```sh
-sudo echo -e "Interface=XXX\nConnection=ethernet\nIP=static\nAddress=('XXX.XXX.XXX.XXX/XX')\nGateway='XXX.XXX.XXX.XXX'\nDNS=('XXX.XXX.XXX.XXX')" > /etc/netctl/ethernet_static
-sudo chmod +r /etc/netctl/ethernet_static
-sudo netctl start ethernet_static
-sudo netctl enable ethernet_static
+echo -e "Interface=XXX\nConnection=ethernet\nIP=static\nAddress=('XXX.XXX.XXX.XXX/XX')\nGateway='XXX.XXX.XXX.XXX'\nDNS=('XXX.XXX.XXX.XXX')" > /etc/netctl/ethernet_static
+chmod +r /etc/netctl/ethernet_static
+netctl start ethernet_static
+netctl enable ethernet_static
 pacman --noconfirm -S sudo
 groupadd sudo
-usermod -aG sudo XXX
 useradd -m XXX
 passwd XXX
+usermod -aG sudo XXX
 visudo
 uncomment %sudo & append XXX ALL=(ALL) NOPASSWD:ALL
 exit
