@@ -47,7 +47,6 @@ sudo echo -e "Interface=XXX\nConnection=ethernet\nIP=static\nAddress=('XXX.XXX.X
 sudo chmod +r /etc/netctl/ethernet_static
 sudo netctl start ethernet_static
 sudo netctl enable ethernet_static
-echo -e "namespace 8.8.8.8\nnamespace 8.8.4.4" >> /etc/resolv.conf
 pacman --noconfirm -S sudo
 groupadd sudo
 usermod -aG sudo XXX
