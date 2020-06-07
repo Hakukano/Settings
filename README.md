@@ -37,7 +37,7 @@ Follow the Installation guide on https://wiki.archlinux.org/index.php/Installati
 ### During guide
 
 ```sh
-pacstrap /mnt base linux linux-firmware vim network-tool netctl
+pacstrap /mnt base linux linux-firmware vim net-tools netctl
 ```
 
 ### After guide su
