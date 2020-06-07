@@ -71,14 +71,16 @@ for src in ${!LINKS[@]}; do
     slink_local $HOME/$src $PWD/$dest
 done
 
-local_settings=$HOME/.settings
-local_alias="alias"
-local_bashrc="extendrc"
-local_function="function"
-local_path="path"
+local_settings=$HOME'/.settings/'
+local_alias=${local_settings}'alias'
+local_bashrc=${local_settings}'extendrc'
+local_function=${local_settings}'function'
+local_path=${local_settings}'path'
+local_i3startup=${local_settings}'i3startup'
 mkdir -p $local_settings
-[[ ! -e $local_settings/${local_alias}    ]]  &&  echo -e "#!/bin/bash\n# Local Aliases"    >  $local_settings/${local_alias}
-[[ ! -e $local_settings/${local_bashrc}   ]]  &&  echo -e "#!/bin/bash\n# Local Bashrc"     >  $local_settings/${local_bashrc}
-[[ ! -e $local_settings/${local_function} ]]  &&  echo -e "#!/bin/bash\n# Local Functions"  >  $local_settings/${local_function}
-[[ ! -e $local_settings/${local_path}     ]]  &&  echo -e "#!/bin/bash\n# Local Paths"      >  $local_settings/${local_path}
+[[ ! -e ${local_alias}     ]]  &&  echo -e "#!/bin/bash\n# Local Aliases"    >  ${local_alias}
+[[ ! -e ${local_bashrc}    ]]  &&  echo -e "#!/bin/bash\n# Local Bashrc"     >  ${local_bashrc}
+[[ ! -e ${local_function}  ]]  &&  echo -e "#!/bin/bash\n# Local Functions"  >  ${local_function}
+[[ ! -e ${local_path}      ]]  &&  echo -e "#!/bin/bash\n# Local Paths"      >  ${local_path}
+[[ ! -e ${local_i3startup} ]]  &&  echo -e "#!/bin/bash\n# Local i3 Startup" >  ${local_i3startup} && sudo chmod +x ${local_i3startup}
 exit 0
