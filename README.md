@@ -268,7 +268,7 @@ sudo apt install -y gradle
 ### pacman
 
 ```sh
-sudo pacman --noconfirm -S mesa glew sdl2 sdl2_image glm freetype2
+sudo pacman --noconfirm -S mesa glew sdl2 sdl2_image glm freetype2 freeglut
 ```
 
 ### apt
