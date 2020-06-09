@@ -155,4 +155,4 @@ fi
 
 exists thefuck && eval `thefuck --alias`
 
-command -v startx && systemctl -q is-active graphical.target && [[ -z ${DISPLAY} && ${XDG_VTNR} -eq 1 ]] && exec startx
+command -v startx > /dev/null && systemctl -q is-active graphical.target && [[ -z ${DISPLAY} && ${XDG_VTNR} -eq 1 ]] && exec startx
