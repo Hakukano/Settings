@@ -69,6 +69,7 @@ cd yay
 makepkg --noconfirm -si
 yay --noconfirm -S snapd
 sudo systemctl start snapd.service
+sudo systemctl enable snapd.service
 sudo ln -s /var/lib/snapd/snap /snap
 sudo pacman --noconfirm -S openssh
 sshkey-gen
