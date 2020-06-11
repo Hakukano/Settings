@@ -72,7 +72,8 @@ sudo systemctl start snapd.service
 sudo systemctl enable snapd.service
 sudo ln -s /var/lib/snapd/snap /snap
 sudo pacman --noconfirm -S openssh
-sshkey-gen
+ssh-keygen
+sudo ssh-keygen -A
 ```
 
 ## i3
