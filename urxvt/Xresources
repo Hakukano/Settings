@@ -22,11 +22,11 @@ URxvt.scrollBar: false
 URxvt.internalBorder: 0
 
 ! Enables copy/paste with Ctrl-Shift-C/V
-! URxvt.iso14755: false
-! URxvt.iso14755_52: false
-! URxvt.perl-ext-common: default,clipboard
-! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.perl-ext-common: default,clipboard
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 ! Make URLs clickable with left mouse button
 ! URxvt.perl-ext-common: default,clipboard,matcher
