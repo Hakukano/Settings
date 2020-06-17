@@ -54,6 +54,7 @@ nnoremap <silent> _ :bdelete!<CR>
 call plug#begin()
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
 Plug 'derekwyatt/vim-scala'
 Plug 'digitaltoad/vim-pug'
 Plug 'flazz/vim-colorschemes'
