@@ -99,6 +99,8 @@ augroup vimrc
         \   exe "normal! g`\"" |
         \ endif
 
+  autocmd FileType json set foldmethod=syntax
+
   if has('win32')
     autocmd GUIEnter * simalt ~x
   endif
