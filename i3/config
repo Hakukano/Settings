@@ -24,6 +24,7 @@ for_window [tiling] border pixel 0
 # Gaps
 gaps inner 10
 gaps outer 10
+gaps top 56
 new_window pixel 0
 smart_borders on
 
@@ -170,5 +171,3 @@ exec_always --no-startup-id ~/.wallpaper/randomwallpaper.sh
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id i3-msg 'workspace 1; exec urxvt'
 exec --no-startup-id i3-msg 'workspace 2; exec chromium'
-
-exec --no-startup-id ~/.settings/i3startup

@@ -12,6 +12,7 @@ Table of Contents
       * [nvim](#nvim)
    * [Optional list](#optional-list)
       * [chromium](#chromium)
+      * [edex-ui](#edex-ui)
       * [htop](#htop)
       * [gradle](#gradle)
       * [opengl](#opengl)
@@ -219,6 +220,14 @@ sudo pacman --noconfirm -S chromium
 
 ```sh
 sudo apt install -y chromium-browser
+```
+
+## edex-ui
+
+### pacman
+
+```sh
+yay -S edex-ui
 ```
 
 ## docker

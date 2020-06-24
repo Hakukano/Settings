@@ -76,11 +76,9 @@ local_alias=${local_settings}'alias'
 local_bashrc=${local_settings}'extendrc'
 local_function=${local_settings}'function'
 local_path=${local_settings}'path'
-local_i3startup=${local_settings}'i3startup'
 mkdir -p $local_settings
 [[ ! -e ${local_alias}     ]]  &&  echo -e "#!/bin/bash\n# Local Aliases"    >  ${local_alias}
 [[ ! -e ${local_bashrc}    ]]  &&  echo -e "#!/bin/bash\n# Local Bashrc"     >  ${local_bashrc}
 [[ ! -e ${local_function}  ]]  &&  echo -e "#!/bin/bash\n# Local Functions"  >  ${local_function}
 [[ ! -e ${local_path}      ]]  &&  echo -e "#!/bin/bash\n# Local Paths"      >  ${local_path}
-[[ ! -e ${local_i3startup} ]]  &&  echo -e "#!/bin/bash\n# Local i3 Startup" >  ${local_i3startup} && sudo chmod +x ${local_i3startup}
 exit 0
