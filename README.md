@@ -13,8 +13,9 @@ Table of Contents
    * [Optional list](#optional-list)
       * [chromium](#chromium)
       * [edex-ui](#edex-ui)
-      * [htop](#htop)
       * [gradle](#gradle)
+      * [htop](#htop)
+      * [ibus](#ibus)
       * [opengl](#opengl)
       * [qt](#qt)
       * [sfml](#sfml)
@@ -244,6 +245,20 @@ sudo pacman --noconfirm -S docker docker-compose
 sudo apt install -y docker
 ```
 
+## gradle
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S gradle
+```
+
+### apt
+
+```sh
+sudo apt install -y gradle
+```
+
 ## htop
 
 ### pacman
@@ -258,18 +273,13 @@ sudo pacman --noconfirm -S htop
 sudo apt install -y htop
 ```
 
-## gradle
+## ibus
 
 ### pacman
 
 ```sh
-sudo pacman --noconfirm -S gradle
-```
-
-### apt
-
-```sh
-sudo apt install -y gradle
+sudo pacman --noconfirm -S ibus ibus-rime
+yay --noconfirm -S ibus-mozc
 ```
 
 ## opengl
