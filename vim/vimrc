@@ -69,6 +69,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pechorin/any-jump.vim'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'rhysd/vim-clang-format'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
@@ -100,6 +101,7 @@ augroup vimrc
         \ endif
 
   autocmd FileType json set foldmethod=syntax
+  autocmd FileType rust set tabstop=4
 
   if has('win32')
     autocmd GUIEnter * simalt ~x

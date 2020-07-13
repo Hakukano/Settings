@@ -297,6 +297,10 @@ augroup plugins
   autocmd FileType cpp xnoremap <Leader>cf :ClangFormat<CR>
   " >>>>
 
+  " <<<< rust-lang/rust.vim
+  autocmd FileType rust nnoremap <Leader>rf :RustFmt<CR>
+  " >>>>
+
   " <<<< scrooloose/nerdtree
   autocmd vimenter * NERDTree
   autocmd StdinReadPre * let s:std_in=1
