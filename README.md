@@ -16,6 +16,7 @@ Table of Contents
       * [gradle](#gradle)
       * [htop](#htop)
       * [ibus](#ibus)
+      * [lua](#lua)
       * [opengl](#opengl)
       * [qt](#qt)
       * [sfml](#sfml)
@@ -280,6 +281,14 @@ sudo apt install -y htop
 ```sh
 sudo pacman --noconfirm -S ibus ibus-rime
 yay --noconfirm -S ibus-mozc
+```
+
+## lua
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S lua
 ```
 
 ## opengl
