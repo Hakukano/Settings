@@ -25,6 +25,7 @@ Table of Contents
       * [tldr](#tldr)
       * [tmux](#tmux)
       * [tree](#tree)
+      * [vscode](#vscode)
       * [xclip](#xclip)
    * [Daily update check](#daily-update-check)
    * [Shadowsocks Config](#shadowsocks-config)
@@ -153,12 +154,6 @@ sudo snap install --beta nvim --classic
 sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack
 pip[{2,3}] install neovim
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-cd ~/Git
-cd /tmp
-yay -G haskell-ide-engine
-cd haskell-ide-engine
-edit PKGBUILD to select a version
-makepkg --noconfirm -si
 nvim
 :PlugInstall
 :UpdateRemotePlugins
@@ -182,14 +177,6 @@ cd ~/Git
 sudo apt install -y clang
 sudo apt install -y clang-format
 sudo apt install -y cscope
-curl -sSL https://get.haskellstack.org/ | sh
-sudo apt install -y libicu-dev libtinfo-dev libgmp-dev
-cd ~/Git
-git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
-cd haskell-ide-engine
-stack upgrade
-stack ./install.hs hie-<latest_version>
-stack ./install.hs build-data
 nvim
 :PlugInstall
 :UpdateRemotePlugins
@@ -404,6 +391,25 @@ sudo pacman --noconfirm -S tree
 
 ```sh
 sudo apt install -y tree
+```
+
+## vscode
+
+### pacman
+
+```sh
+sudo pacman --noconfirm -S code
+yay --noconfirm -S stack
+# using resolver: lts-14.27 may solve the version issue
+stack install intero QuickCheck hlint brittany ghcid
+code \
+  --install-extension vscodevim.vim \
+  --install-extension jdinhlife.gruvbox \
+  --install-extension ucl.haskelly \
+  --install-extension hoovercj.haskell-linter \
+  --install-extension maxgabriel.brittany \
+  --install-extension jcanero.hoogle-vscode
+ln -fvs ~/Git/Settings/vscode/settings.json ~/.config/Code\ -\ OSS/User/settings.json
 ```
 
 ## xclip

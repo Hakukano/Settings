@@ -149,11 +149,6 @@ if has('nvim')
   let g:hindent_on_save = 1
   " >>>>
 
-  " <<<< autozimu/LanguageClient-neovim
-  let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'] }
-  let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
-  " >>>>
-
   " <<<< iamcco/markdown-preview.nvim
   " set to 1, nvim will open the preview window after entering the markdown buffer
   " default: 0
@@ -237,16 +232,6 @@ if has('nvim')
   let g:cscope_update_on_start = 1
   " >>>>
 
-  " <<<< neovimhaskell/haskell-vim
-  let  g:haskell_enable_quantification    =  1  "  to  enable  highlighting  of  `forall`
-  let  g:haskell_enable_recursivedo       =  1  "  to  enable  highlighting  of  `mdo`      and       `rec`
-  let  g:haskell_enable_arrowsyntax       =  1  "  to  enable  highlighting  of  `proc`
-  let  g:haskell_enable_pattern_synonyms  =  1  "  to  enable  highlighting  of  `pattern`
-  let  g:haskell_enable_typeroles         =  1  "  to  enable  highlighting  of  type       roles
-  let  g:haskell_enable_static_pointers   =  1  "  to  enable  highlighting  of  `static`
-  let  g:haskell_backpack                 =  1  "  to  enable  highlighting  of  backpack   keywords
-  " >>>>
-
 else
   " <<<< vim-scripts/cscope.vim
   if has('cscope')
@@ -307,14 +292,4 @@ augroup plugins
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   " >>>>
 
-  " <<<< autozimu/LanguageClient-neovim
-  autocmd FileType haskell nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-  autocmd FileType haskell nnoremap <Leader>lh :call LanguageClient#textDocument_hover()<CR>
-  autocmd FileType haskell nnoremap <Leader>ld :call LanguageClient#textDocument_definition()<CR>
-  autocmd FileType haskell nnoremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-  autocmd FileType haskell nnoremap <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-  autocmd FileType haskell nnoremap <Leader>lb :call LanguageClient#textDocument_references()<CR>
-  autocmd FileType haskell nnoremap <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-  autocmd FileType haskell nnoremap <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-  " >>>>
 augroup END
