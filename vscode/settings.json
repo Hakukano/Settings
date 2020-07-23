@@ -59,5 +59,6 @@
   "terminal.integrated.fontFamily": "'MesloLGS NF'",
   "workbench.colorTheme": "Gruvbox Dark Medium",
   "workbench.preferredDarkColorTheme": "Gruvbox Dark Medium",
-  "workbench.preferredLightColorTheme": "Gruvbox Light Medium"
+  "workbench.preferredLightColorTheme": "Gruvbox Light Medium",
+  "files.eol": "\n"
 }
