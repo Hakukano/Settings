@@ -154,10 +154,6 @@ sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_sear
 pip[{2,3}] install neovim
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cd ~/Git
-git clone https://github.com/BurntSushi/ripgrep
-cd ripgrep
-cargo build --release --features 'pcre2'
-sudo cp target/release/rg /bin/rg
 cd /tmp
 yay -G haskell-ide-engine
 cd haskell-ide-engine
@@ -183,10 +179,6 @@ pip[{2,3}] install neovim
 sudo apt install -y silversearcher-ag
 curl --proto '=https' --tlsv<latest_version> -sSf https://sh.rustup.rs | sh
 cd ~/Git
-git clone https://github.com/BurntSushi/ripgrep
-cd ripgrep
-cargo build --release --features 'pcre2'
-sudo cp target/release/rg /bin/rg
 sudo apt install -y clang
 sudo apt install -y clang-format
 sudo apt install -y cscope
