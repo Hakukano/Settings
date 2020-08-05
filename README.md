@@ -442,7 +442,7 @@ sudo chmod a+x shadowsocks-all.sh
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 ```
 
-Or use cached script under ss/
+Or use cached script under ./ss/
 
 # Outline VPN Config
 
