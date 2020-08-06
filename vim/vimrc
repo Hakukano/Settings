@@ -75,7 +75,6 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 if has('nvim')
-  Plug 'alx741/vim-hindent'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
   Plug 'mfulz/cscope.nvim'
 else
