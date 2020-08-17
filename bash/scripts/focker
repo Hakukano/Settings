@@ -60,6 +60,7 @@ lup() {
     fi
     cleanup all <<< y
     sudo docker-compose up -d --build
+    cleanup ei <<< y
 }
 
 sup() {
@@ -77,6 +78,7 @@ sup() {
     sudo docker load -i ${img}
     cleanup all <<< y
     sudo docker-compose up -d
+    cleanup ei <<< y
 }
 
 [[ ${#} -eq 0 ]] && usage && exit 1
