@@ -69,6 +69,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pechorin/any-jump.vim'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-grammarous'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tikhomirov/vim-glsl'
