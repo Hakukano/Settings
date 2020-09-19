@@ -11,6 +11,7 @@ Table of Contents
       * [npm](#npm)
       * [nvim](#nvim)
    * [Optional list](#optional-list)
+      * [amethyst](#amethyst)
       * [chromium](#chromium)
       * [edex-ui](#edex-ui)
       * [gradle](#gradle)
@@ -188,6 +189,14 @@ sudo apt install -y openjdk-<latest_version>-jdk
 ```
 
 # Optional list
+
+## amethyst
+
+### pacman
+
+```sh
+sudo pacman -S grep gcc pkgconf openssl alsa-lib cmake make python3 freetype2 awk libxcb
+```
 
 ## chromium
 
