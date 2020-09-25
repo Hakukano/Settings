@@ -61,6 +61,9 @@ exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy -pf Comic-Sans-MS -- scrot -z -o
 bindsym $mod+Ctrl+Shift+l exec i3lock-fancy -pf Comic-Sans-MS -- scrot -z -o
 
+# Speed screen shot
+bindsym --release $mod+Ctrl+Shift+s exec scrot -s -o /tmp/ss.png
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
