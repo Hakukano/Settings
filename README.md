@@ -84,8 +84,8 @@ sudo ssh-keygen -A
 ## i3
 
 ```sh
-sudo pacman --noconfirm -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind picom noto-fonts-cjk noto-fonts-emoji noto-fonts feh alsa-utils scrot imagemagick util-linux
-yay --noconfirm -S polybar ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family i3lock-fancy-git i3lock-color-git
+sudo pacman --noconfirm -S i3 rofi xorg-server xorg-xinit rxvt-unicode bind noto-fonts-cjk noto-fonts-emoji noto-fonts feh alsa-utils scrot imagemagick util-linux dunst ttf-hack pulseaudio mpd acpi
+yay --noconfirm -S picom-ibhagwan-git polybar ttf-freefont ttf-ms-fonts ttf-linux-libertine ttf-dejavu ttf-inconsolata ttf-ubuntu-font-family i3lock-fancy-git i3lock-color-git
 fc-cache
 ```
 
