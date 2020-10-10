@@ -61,7 +61,6 @@ Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
 Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
