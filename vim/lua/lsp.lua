@@ -8,6 +8,8 @@ local on_attach = function(client, bufnr)
   completion.on_attach(client, bufnr)
   diagnostic.on_attach(client, bufnr)
 
+  vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+
   vim.fn.nvim_set_keymap("n", "<leader>lb", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>lc", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
