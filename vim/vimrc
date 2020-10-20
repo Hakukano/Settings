@@ -51,17 +51,6 @@ nnoremap <silent> L gt
 nnoremap <silent> Q :q<CR>
 nnoremap <silent> _ :bdelete!<CR>
 
-nnoremap <silent> <leader>ll <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR><cmd>edit<CR>
-nnoremap <silent> <leader>ldf <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <leader>li  <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <leader>ls  <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <leader>lt  <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <leader>lr  <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> <leader>lds <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> <leader>lw  <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <leader>ldc <cmd>lua vim.lsp.buf.declaration()<CR>
-
 call plug#begin()
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
