@@ -1,3 +1,5 @@
+let g:diagnostic_enable_underline = 1
+
 nnoremap <silent> <leader>dn <cmd>NextDiagnosticCycle<CR>
 nnoremap <silent> <leader>dp <cmd>PrevDiagnosticCycle<CR>
 

@@ -72,10 +72,6 @@ cd ~/Git
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg --noconfirm -si
-yay --noconfirm -S snapd
-sudo systemctl start snapd.service
-sudo systemctl enable snapd.service
-sudo ln -s /var/lib/snapd/snap /snap
 sudo pacman --noconfirm -S openssh
 ssh-keygen
 sudo ssh-keygen -A
@@ -151,9 +147,8 @@ This should eventually install npm
 ### pacman
 
 ```sh
-sudo snap install --beta nvim --classic
+yay --noconfirm nvim-nightly bear
 sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rust-analyzer
-yay --noconfirm -S bear
 pip[{2,3}] install neovim
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup update
