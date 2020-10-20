@@ -51,6 +51,17 @@ nnoremap <silent> L gt
 nnoremap <silent> Q :q<CR>
 nnoremap <silent> _ :bdelete!<CR>
 
+nnoremap <silent> <leader>ll <cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR><cmd>edit<CR>
+nnoremap <silent> <leader>ldf <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>li  <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <leader>ls  <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>lt  <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> <leader>lr  <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>lds <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> <leader>lw  <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <leader>ldc <cmd>lua vim.lsp.buf.declaration()<CR>
+
 call plug#begin()
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -61,13 +72,11 @@ Plug 'flazz/vim-colorschemes'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'lervag/vimtex'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pechorin/any-jump.vim'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'rhysd/vim-clang-format'
 Plug 'rhysd/vim-grammarous'
 Plug 'ron-rs/ron.vim'
@@ -79,17 +88,32 @@ Plug 'tpope/vim-surround'
 if has('nvim')
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
   Plug 'mfulz/cscope.nvim'
-else
-  Plug 'vim-scripts/cscope.vim'
-endif
-if has('python') || has('python2') || has('python3')
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/diagnostic-nvim'
 endif
 if has('win32')
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-shell'
 endif
 call plug#end()
+
+lua <<EOF
+nvim_lsp = require'nvim_lsp'
+
+nvim_lsp.bashls.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.clangd.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.cmake.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.cssls.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.dockerls.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.hie.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.html.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.jdtls.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.jsonls.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.rust_analyzer.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.tsserver.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.vimls.setup{on_attach=require'diagnostic'.on_attach}
+nvim_lsp.yamlls.setup{on_attach=require'diagnostic'.on_attach}
+EOF
 
 augroup vimrc
   autocmd!
@@ -98,9 +122,6 @@ augroup vimrc
         \ if line("'\"") >= 1 && line("'\"") <= line("$") |
         \   exe "normal! g`\"" |
         \ endif
-
-  autocmd FileType json set foldmethod=syntax
-  autocmd FileType rust set tabstop=4
 
   if has('win32')
     autocmd GUIEnter * simalt ~x

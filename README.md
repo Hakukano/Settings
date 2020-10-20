@@ -152,15 +152,25 @@ This should eventually install npm
 
 ```sh
 sudo snap install --beta nvim --classic
-sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack
+sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rust-analyzer
+yay --noconfirm -S bear
 pip[{2,3}] install neovim
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup update
+rustup component add rls rust-analysis rust-src
 nvim
 :PlugInstall
 :UpdateRemotePlugins
+:LspInstall bashls
+:LspInstall cssls
+:LspInstall dockerls
+:LspInstall html
+:LspInstall jdtls
+:LspInstall jsonls
+:LspInstall tsserver
+:LspInstall vimls
+:LspInstall yamlls
 Q
-cd ~/.vim/plugged/YouCompleteMe
-./install.py --clang-completer --java-completer --rust-completer --ts-completer
 ~/.fzf/install
 source ~/.zshrc
 ```
