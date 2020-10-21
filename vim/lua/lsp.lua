@@ -35,9 +35,6 @@ nvim_lsp.cssls.setup({
 nvim_lsp.dockerls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.hie.setup({
-  on_attach = on_attach,
-})
 nvim_lsp.html.setup({
   on_attach = on_attach,
 })
