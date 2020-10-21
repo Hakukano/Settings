@@ -80,13 +80,14 @@ if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-lua/diagnostic-nvim'
-  Plug 'nvim-lua/lsp-status.nvim'
 endif
 if has('win32')
   Plug 'xolox/vim-misc'
   Plug 'xolox/vim-shell'
 endif
 call plug#end()
+
+colorscheme gruvbox
 
 lua require('lsp')
 
