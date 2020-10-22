@@ -74,6 +74,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 if has('nvim')
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
   Plug 'mfulz/cscope.nvim'
