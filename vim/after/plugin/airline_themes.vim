@@ -1,1 +1,1 @@
-let g:airline_theme='tomorrow'
+let g:airline_theme='base16_gruvbox_dark_hard'

@@ -46,6 +46,8 @@ nnoremap <Up> <nop>
 nnoremap <silent> - :bdelete<CR>
 nnoremap <silent> <BS> :nohlsearch<CR>
 nnoremap <silent> <CR> :w<CR>
+nnoremap <silent> <S-Tab> :bp<CR>
+nnoremap <silent> <Tab> :bn<CR>
 nnoremap <silent> H gT
 nnoremap <silent> L gt
 nnoremap <silent> Q :q<CR>
@@ -63,6 +65,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
+Plug 'mhinz/vim-startify'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pechorin/any-jump.vim'
@@ -70,6 +73,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'rhysd/vim-grammarous'
 Plug 'ron-rs/ron.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
