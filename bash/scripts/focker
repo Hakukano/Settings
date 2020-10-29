@@ -17,7 +17,7 @@ cleanup() {
             echo 'INFO: Cleaning up everything...'
             sudo docker-compose kill
             sudo docker-compose rm <<< y
-            sudo docker rmi `sudo docker images | grep '^<none>' | awk '{print $3;}'`
+            sudo docker rmi `sudo docker images | grep '<none>' | awk '{print $3;}'`
         else
             echo 'INFO: Aborting...'
         fi
@@ -26,7 +26,7 @@ cleanup() {
         echo ''
         if [[ ${cu} == 'y' ]]; then
             echo 'INFO: Removing all empty images...'
-            sudo docker rmi `sudo docker images | grep '^<none>' | awk '{print $3;}'`
+            sudo docker rmi `sudo docker images | grep '<none>' | awk '{print $3;}'`
         else
             echo 'INFO: Aborting...'
         fi
