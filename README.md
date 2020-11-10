@@ -149,7 +149,7 @@ This should eventually install npm
 ```sh
 yay --noconfirm -S neovim-nightly bear
 sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rustup rust-analyzer
-pip3 install neovim cmake-language-server
+pip3 install neovim cmake-language-server 'python-language-server[all]'
 npm install -g typescript
 nvim
 :PlugInstall

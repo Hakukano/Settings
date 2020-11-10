@@ -14,6 +14,7 @@ local on_attach = function(client, bufnr)
   vim.fn.nvim_set_keymap("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>ll", "<cmd>lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR><cmd>edit<CR>", {noremap = true, silent = true})
+  vim.fn.nvim_set_keymap("n", "<leader>lp", "<cmd>lua print(vim.inspect(vim.lsp.buf_get_clients()))<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
@@ -42,6 +43,9 @@ nvim_lsp.jdtls.setup({
   on_attach = on_attach,
 })
 nvim_lsp.jsonls.setup({
+  on_attach = on_attach,
+})
+nvim_lsp.pyls.setup({
   on_attach = on_attach,
 })
 nvim_lsp.rust_analyzer.setup({
