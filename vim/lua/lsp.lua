@@ -1,6 +1,6 @@
 local completion = require('completion')
 local diagnostic = require('diagnostic')
-local nvim_lsp = require('nvim_lsp')
+local lspconfig = require('lspconfig')
 
 local on_attach = function(client, bufnr)
   completion.on_attach(client, bufnr)
@@ -22,42 +22,42 @@ local on_attach = function(client, bufnr)
   vim.fn.nvim_set_keymap("n", "<leader>lw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
 end
 
-nvim_lsp.bashls.setup({
+lspconfig.bashls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.clangd.setup({
+lspconfig.clangd.setup({
   on_attach = on_attach,
 })
-nvim_lsp.cmake.setup({
+lspconfig.cmake.setup({
   on_attach = on_attach,
 })
-nvim_lsp.cssls.setup({
+lspconfig.cssls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.dockerls.setup({
+lspconfig.dockerls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.html.setup({
+lspconfig.html.setup({
   on_attach = on_attach,
 })
-nvim_lsp.jdtls.setup({
+lspconfig.jdtls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.jsonls.setup({
+lspconfig.jsonls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.pyls.setup({
+lspconfig.pyls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.rust_analyzer.setup({
+lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
 })
-nvim_lsp.tsserver.setup({
+lspconfig.tsserver.setup({
   on_attach = on_attach,
 })
-nvim_lsp.vimls.setup({
+lspconfig.vimls.setup({
   on_attach = on_attach,
 })
-nvim_lsp.yamlls.setup({
+lspconfig.yamlls.setup({
   on_attach = on_attach,
 })
