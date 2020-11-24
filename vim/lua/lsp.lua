@@ -1,10 +1,8 @@
 local completion = require('completion')
-local diagnostic = require('diagnostic')
 local lspconfig = require('lspconfig')
 
 local on_attach = function(client, bufnr)
   completion.on_attach(client, bufnr)
-  diagnostic.on_attach(client, bufnr)
 
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
@@ -20,6 +18,9 @@ local on_attach = function(client, bufnr)
   vim.fn.nvim_set_keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>lw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
+
+  vim.fn.nvim_set_keymap("n", "<leader>dn", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", {noremap = true})
+  vim.fn.nvim_set_keymap("n", "<leader>dp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", {noremap = true})
 end
 
 lspconfig.bashls.setup({
