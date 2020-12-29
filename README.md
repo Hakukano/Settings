@@ -2,6 +2,7 @@ Table of Contents
 =================
 
    * [Arch](#arch)
+      * [Example](#example)
       * [Preinstallation](#preinstallation)
       * [i3](#i3)
    * [Installation](#installation)
@@ -36,6 +37,83 @@ Table of Contents
 # Arch
 
 Follow the Installation guide on https://wiki.archlinux.org/index.php/Installation_guide
+
+## Example
+
+### Check EFI or not
+
+```
+ls /sys/firmware/efi/efivars
+```
+
+### Update cystem clock
+
+```
+timedatectl set-ntp true
+```
+
+### Partition disk
+
+```
+fdisk /dev/sda
+```
+
+* EFI + GPT
+```
+g
+n
+1
+<enter>
++512M
+t
+uefi
+n
+2
+<enter>
++1G
+t
+2
+swap
+n
+3
+<enter>
+<enter>
+t
+3
+linux
+w
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+mount /dev/sda3 /mnt
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+swapon /dev/sda2
+```
+
+* BIOS + MBR
+```
+g
+n
+p
+1
+<enter>
++1G
+t
+swap
+n
+p
+2
+<enter>
+<enter>
+t
+linux
+w
+mkfs.ext4 /dev/sda2
+mkswap /dev/sda1
+mount /dev/sda2 /mnt
+swapon /dev/sda1
+```
 
 ## Preinstallation
 
@@ -151,19 +229,7 @@ yay --noconfirm -S neovim-git bear
 sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rustup rust-analyzer
 pip3 install neovim cmake-language-server 'python-language-server[all]'
 npm install -g typescript
-nvim
-:PlugInstall
-:UpdateRemotePlugins
-:LspInstall bashls
-:LspInstall cssls
-:LspInstall dockerls
-:LspInstall html
-:LspInstall jdtls
-:LspInstall jsonls
-:LspInstall tsserver
-:LspInstall vimls
-:LspInstall yamlls
-Q
+nvim '+PlugInstall' '+UpdateRemotePlugins' '+LspInstall bashls' '+LspInstall cssls' '+LspInstall dockerls' '+LspInstall html' '+LspInstall jdtls' '+LspInstall jsonls' '+LspInstall tsserver' '+LspInstall vimls' '+LspInstall yamlls' '+qa'
 ~/.fzf/install
 source ~/.zshrc
 ```
