@@ -115,13 +115,64 @@ mount /dev/sda2 /mnt
 swapon /dev/sda1
 ```
 
-## Preinstallation
-
-### During guide
+### Pacstrap
 
 ```sh
-pacstrap /mnt base linux linux-firmware vim net-tools netctl
+pacstrap /mnt base linux linux-firmware vim net-tools netctl sudo grub
 ```
+
+### Config system
+
+```
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Americas/Toronto /etc/localtime
+hwclock --systohc
+# Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales
+locale-gen
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
+echo ${myhostname} > /etc/hostname
+echo -e "127.0.0.1	localhost\n::1		localhost\n127.0.1.1	${myhostname}.localdomain	${myhostname}"
+passwd
+```
+
+### Bootloader
+
+* EFI + GPT
+
+```
+pacman -S efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+```
+
+* BIOS + MBR
+
+```
+grub-install --target=i386-pc /dev/sda
+```
+
+### Microcode
+
+```
+pacman -S intel-ucode
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Check if the microcode is generated
+
+```
+grep 'intel-ucode' /boot/grub/grub.cfg
+```
+
+### Finishing
+
+```
+exit
+umount -R /mnt
+reboot
+```
+
+## Post-installation
 
 ### After guide su
 
@@ -130,7 +181,6 @@ echo -e "Interface=XXX\nConnection=ethernet\nIP=static\nAddress=('XXX.XXX.XXX.XX
 chmod +r /etc/netctl/ethernet_static
 netctl start ethernet_static
 netctl enable ethernet_static
-pacman --noconfirm -S sudo
 groupadd sudo
 useradd -m XXX
 passwd XXX
