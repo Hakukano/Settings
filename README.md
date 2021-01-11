@@ -278,8 +278,7 @@ This should eventually install npm
 yay --noconfirm -S neovim-git bear
 sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rustup rust-analyzer
 pip3 install neovim cmake-language-server 'python-language-server[all]'
-npm install -g typescript
-nvim '+PlugInstall' '+UpdateRemotePlugins' '+LspInstall bashls' '+LspInstall cssls' '+LspInstall dockerls' '+LspInstall html' '+LspInstall jdtls' '+LspInstall jsonls' '+LspInstall tsserver' '+LspInstall vimls' '+LspInstall yamlls' '+qa'
+npm install -g typescript bash-language-server dockerfile-language-server-nodejs vscode-css-languageserver-bin vscode-html-languageserver-bin vscode-json-languageserver typescript-language-server vim-language-server yaml-language-server
 ~/.fzf/install
 source ~/.zshrc
 ```
