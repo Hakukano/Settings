@@ -277,6 +277,7 @@ This should eventually install npm
 ```sh
 yay --noconfirm -S neovim-git bear rust-analyzer-git
 sudo pacman --noconfirm -S python python-pip python2 python2-pip the_silver_searcher clang cscope cmake jdk11-openjdk stack rustup
+rustup component add rls rust-analysis rust-src
 pip3 install neovim cmake-language-server 'python-language-server[all]'
 npm install -g typescript bash-language-server dockerfile-language-server-nodejs vscode-css-languageserver-bin vscode-html-languageserver-bin vscode-json-languageserver typescript-language-server vim-language-server yaml-language-server
 ~/.fzf/install
