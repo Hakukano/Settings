@@ -50,22 +50,22 @@ lspconfig.jsonls.setup({
 lspconfig.pyls.setup({
   on_attach = on_attach,
 })
--- lspconfig.rust_analyzer.setup({
---   on_attach = on_attach,
---   settings = {
---     ["rust-analyzer"] = {
---       cargo = {
---         loadOutDirsFromCheck = true,
---       },
---       procMacro = {
---         enable = true,
---       },
---     },
---   },
--- })
-lspconfig.rls.setup({
+lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        loadOutDirsFromCheck = true,
+      },
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
 })
+-- lspconfig.rls.setup({
+--   on_attach = on_attach,
+-- })
 lspconfig.tsserver.setup({
   on_attach = on_attach,
 })
