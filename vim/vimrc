@@ -54,6 +54,7 @@ nnoremap <silent> Q :q<CR>
 nnoremap <silent> _ :bdelete!<CR>
 
 call plug#begin()
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
@@ -64,6 +65,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'mogelbrod/vim-jsonpath'
