@@ -18,6 +18,7 @@ doall() {
       sudo pacman --noconfirm -Qdtq | sudo pacman --noconfirm -Rs -
     fi
     if command -v yay > /dev/null; then
+      yay -Y --gendb
       yay --noconfirm -Syu
       yay --noconfirm -Sc
       yay --noconfirm -Qdtq | yay --noconfirm -Rs -
