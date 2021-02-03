@@ -58,9 +58,7 @@ lspconfig.rust_analyzer.setup({
         loadOutDirsFromCheck = true,
       },
       diagnostics = {
-        enable = true,
-        -- disabled = {"unresolved-proc-macro"},
-        enableExperimental = true,
+        disabled = {"macro-error"},
       },
       procMacro = {
         enable = true,
