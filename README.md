@@ -93,7 +93,7 @@ swapon /dev/sda2
 
 * BIOS + MBR
 ```
-g
+o
 n
 p
 1
