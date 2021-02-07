@@ -107,6 +107,7 @@ p
 <enter>
 <enter>
 t
+2
 linux
 w
 mkfs.ext4 /dev/sda2
