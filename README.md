@@ -220,6 +220,10 @@ At least have a ~/Git directory and all git repo goes in it.
 
 Run install.\* in a clean environment, then install not-installed programs in the Must-have list below
 
+## Trade-offs
+
+* Comment out picom if there is no GPU accelerate.
+
 # Must-have list
 
 ## git
